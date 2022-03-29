@@ -71,6 +71,9 @@ void *Session::EvtProcRoutine(void *arg)
                     //::Network::Packet * pAck = new ::Network::Packet();
                     //pAck->Write2(-11);
                     //pSession->sendPacket(pAck->MakeNetPacket(CMD_CS_CONNECT));
+                    delete pNetPacket;
+                    delete pPacket;
+                    continue;
                 }
 
                 pSession->_user = new User();
