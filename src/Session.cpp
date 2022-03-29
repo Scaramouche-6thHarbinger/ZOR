@@ -4,15 +4,34 @@ void Session::on_CS_REQ_SERVER_ADDR(Network::Packet * pPacket)
 {
     LOGD("on_CS_REQ_SERVER_ADDR");
 
-    char social_id[32];
+    char *social_id;
 
     Encryption::Instance().Decrypt_First(pPacket);
 
     short social_len = 0;
     pPacket->Read2(&social_len);
+    social_id = new char[social_len];
     pPacket->ReadStr((byte*)social_id, social_len);
 
-    LOGD("social_id: %s", social_id);
+    LOG("social_id: %s", social_id);
+
+    // TODO: check if socialid is blacklisted
+
+    // TODO: check if server is full (max_users)
+
+    Network::Packet *pRsp = new Network::Packet(CMD_SC_REQ_SERVER_ADDR);
+    const char *pServerDomainName = "192.168.178.47";
+    short server_id = 1;
+    short channel_id = 1;
+    pRsp->Write2(strlen(pServerDomainName));
+    pRsp->WriteStr((byte*)pServerDomainName, strlen(pServerDomainName));
+    pRsp->Write2(55000);
+    pRsp->Write2(server_id);
+    pRsp->Write2(channel_id);
+
+    Encryption::Instance().Encrypt_First((byte*)social_id, strlen(social_id), pRsp);
+    this->sendPacket(pRsp->MakeNetPacket(CMD_SC_REQ_SERVER_ADDR));
+    delete pRsp;
 }
 
 void *Session::EvtProcRoutine(void *arg)
@@ -43,6 +62,7 @@ void *Session::EvtProcRoutine(void *arg)
             if (pNetPacket->getCMD() == CMD_CS_REQ_SERVER_ADDR) {
                 pSession->on_CS_REQ_SERVER_ADDR(pNetPacket);
             }
+            delete pNetPacket;
             delete pPacket;
         } else {
             LOGD("received NULL packet, skipping");
@@ -56,7 +76,7 @@ void *Session::PacketRoutine(void *arg) {
     Session *pSession = (Session *)arg;
     int asockfd = pSession->sockfd;
     while (pSession->isRunning) {
-        pthread_mutex_lock(&pSession->mutex);
+        //pthread_mutex_lock(&pSession->mutex);
         byte *header = new byte[sizeof(tagNetHeader)];
         int len = recv(asockfd, header, sizeof(tagNetHeader), 0);
         if (len < 0) {
@@ -103,20 +123,22 @@ void *Session::PacketRoutine(void *arg) {
         }
         //delete[] header;
         // dont delete header, it will be deleted in the EvtProcRoutine
-        pthread_mutex_unlock(&pSession->mutex);
+        //pthread_mutex_unlock(&pSession->mutex);
     }
     return NULL;
 }
 
 void Session::sendPacket(NetPacket *pPacket) {
     pthread_mutex_lock(&mutex);
+    LOGD("sendPacket");
     sendRaw(pPacket->header.getBytes(), sizeof(tagNetHeader));
     sendRaw(pPacket->body, pPacket->bodyLen);
+    LOG("bodyLen = %d", pPacket->bodyLen);
+    LOGD("sent packet");
     pthread_mutex_unlock(&mutex);
 }
 
 void Session::sendRaw(byte *pBuf, uint mlen) {
-    pthread_mutex_lock(&mutex);
     int len = send(sockfd, pBuf, mlen, 0);
     if (len < 0 || len != (int)mlen) {
         LOGE("ERROR on send");
@@ -126,7 +148,6 @@ void Session::sendRaw(byte *pBuf, uint mlen) {
     } else {
         LOG("Sent %d bytes", len);
     }
-    pthread_mutex_unlock(&mutex);
 }
 
 int Session::handlePacket(NetPacket *pNetPacket) {

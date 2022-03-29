@@ -23,7 +23,7 @@ void func(int sockfd)
             ;
         NetPacket *pPacket = new NetPacket();
         pPacket->header.byReserve = 0xFF;
-        pPacket->header.wCMD = 0x0001;
+        pPacket->header.wCMD = 518;
         pPacket->header.wLen = sizeof(buff) + 3;
         pPacket->body = (byte *)buff;
         write(sockfd, (void*)pPacket, sizeof(NetHeader));

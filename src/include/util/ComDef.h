@@ -1,11 +1,10 @@
 #ifndef __COMDEF_H__
 #define __COMDEF_H__
 
+#include <ByteArray.h>
 #include <Logger.h>
 
 #include <stdio.h>
-
-typedef unsigned char byte;
 
 typedef struct tagNetHeader
 {
@@ -18,7 +17,16 @@ public:
 	bool				isValid() { return (byStartFlag == 0xFF); }
 	unsigned short		getCMD(void) { return wCMD; }
 	unsigned short		getLength(void) { return wLen; }
-	byte*				getBytes(void) { return (byte*)this; }
+	byte*				getBytes(void) {
+		byte *p = new byte[6];
+		p[0] = byStartFlag;
+		LOGW("wlen=%d", wLen);
+		ByteArray::SetUInt16(p, 1, wLen);
+		p[3] = byReserve;
+		LOGW("wcmd=%d", wCMD);
+		ByteArray::SetUInt16(p, 4, wCMD);
+		return p;
+	}
 } __attribute__ ((packed)) NetHeader;
 
 typedef struct tagNetPacket

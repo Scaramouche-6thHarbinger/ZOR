@@ -1,5 +1,5 @@
 CXX 				:= g++
-CXXFLAGS 			:= -Wall -Wextra -O2 -g
+CXXFLAGS 			:= -Wall -Wextra -Wno-strict-aliasing -Wno-shift-count-overflow -O2 -g
 LOCAL_PATH			:= $(PWD)
 LOCAL_OUT_PATH 		:= $(PWD)/out/
 LOCAL_LIB_INCLUDES 	:= -L$(LOCAL_OUT_PATH) -lpthread
@@ -26,7 +26,7 @@ INCLUDES := \
 LOCAL_C_INCLUDES = $(addprefix -I, $(INCLUDES))
 
 
-all: client server
+all: server
 
 client:
 	mkdir -p $(LOCAL_OUT_PATH)

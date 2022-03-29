@@ -17,6 +17,7 @@
 #include <assert.h>
 
 #include <util.h>
+#include <ByteArray.h>
 
 #define MAX_PACKET_SIZE 2048
 
@@ -26,7 +27,7 @@ class Packet
 {
 public:
     Packet(unsigned short wCMD);
-    Packet(unsigned int size);
+    Packet(unsigned int size, bool clear);
     Packet(byte* body, unsigned int size);
     ~Packet();
 
@@ -65,6 +66,10 @@ public:
 
     uint32_t getLength() const {
         return size;
+    }
+
+    void reset() {
+        offset = 0;
     }
 
     bool			Read1(byte* d);

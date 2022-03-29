@@ -53,11 +53,22 @@ public:
 
 		unsigned char * pArray = reinterpret_cast<unsigned char *>(pPacket->getPtr());
 
-		int k = 0;
 		for (int i = 0; i < (int)pPacket->getLength(); ++i)
 		{
-			pArray[i] = pArray[i] ^ public_key[k];
-			if( ++k >= public_key_len ) { k = 0; }
+			pArray[i] ^= public_key[i % public_key_len];
+		}
+	}
+
+	void Encrypt_First(unsigned char *social_id, int len, ::Network::Packet * pPacket)
+	{
+		if( len >= 17 )
+			len = 16;
+
+		unsigned char * pArray = reinterpret_cast<unsigned char *>(pPacket->getPtr());
+
+		for (int i = 0; i < (int)pPacket->getLength(); ++i)
+		{
+			pArray[i] ^= social_id[i % len];
 		}
 	}
 private:
