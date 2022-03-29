@@ -19,7 +19,7 @@ void Session::on_CS_REQ_SERVER_ADDR(Network::Packet * pPacket)
 
     // TODO: check if server is full (max_users)
 
-    Network::Packet *pRsp = new Network::Packet(CMD_SC_REQ_SERVER_ADDR);
+    Network::Packet *pRsp = new Network::Packet();
     const char *pServerDomainName = "192.168.178.47";
     short server_id = 1;
     short channel_id = 1;

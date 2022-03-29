@@ -26,12 +26,12 @@ namespace Network {
 class Packet
 {
 public:
-    Packet(unsigned short wCMD);
+    Packet(unsigned short wCMD = 0);
     Packet(unsigned int size, bool clear);
     Packet(byte* body, unsigned int size);
     ~Packet();
 
-    NetPacket* MakeNetPacket(unsigned short wCMD);
+    NetPacket* MakeNetPacket(unsigned short wCMD = 0);
 
 private:
     NetHeader* header;
