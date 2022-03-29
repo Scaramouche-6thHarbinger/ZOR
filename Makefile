@@ -5,8 +5,9 @@ LOCAL_OUT_PATH 		:= $(PWD)/out/
 LOCAL_LIB_INCLUDES 	:= -L$(LOCAL_OUT_PATH) -lpthread
 
 LOCAL_SRC_FILES := \
-	src/Session/Session.cpp \
-	src/Network/NetworkManager.cpp \
+	src/Session.cpp \
+	src/NetworkManager.cpp \
+	src/Packet.cpp \
 	src/include/util/utils3/ysf_queue3.cpp
 
 LOCAL_TEST_FILE := \
@@ -19,8 +20,8 @@ INCLUDES := \
 	src/include \
 	src/include/util \
 	src/include/util/utils3 \
-	src/Network \
-	src/Session
+	src/ \
+	src/util
 
 LOCAL_C_INCLUDES = $(addprefix -I, $(INCLUDES))
 

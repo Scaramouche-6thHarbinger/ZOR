@@ -18,6 +18,7 @@ public:
 	bool				isValid() { return (byStartFlag == 0xFF); }
 	unsigned short		getCMD(void) { return wCMD; }
 	unsigned short		getLength(void) { return wLen; }
+	byte*				getBytes(void) { return (byte*)this; }
 } __attribute__ ((packed)) NetHeader;
 
 typedef struct tagNetPacket
@@ -26,5 +27,7 @@ typedef struct tagNetPacket
     byte                *body;
     uint                bodyLen;
 } __attribute__ ((packed)) NetPacket;
+
+
 
 #endif // __COMDEF_H__

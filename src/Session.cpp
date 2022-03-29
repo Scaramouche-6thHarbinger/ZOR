@@ -1,5 +1,20 @@
 #include <Session.h>
 
+void Session::on_CS_REQ_SERVER_ADDR(Network::Packet * pPacket)
+{
+    LOGD("on_CS_REQ_SERVER_ADDR");
+
+    char social_id[32];
+
+    Encryption::Instance().Decrypt_First(pPacket);
+
+    short social_len = 0;
+    pPacket->Read2(&social_len);
+    pPacket->ReadStr((byte*)social_id, social_len);
+
+    LOGD("social_id: %s", social_id);
+}
+
 void *Session::EvtProcRoutine(void *arg)
 {
     Session *pSession = (Session *)arg;
@@ -18,10 +33,16 @@ void *Session::EvtProcRoutine(void *arg)
         NetPacket *pPacket = new NetPacket();
         pPacket = (NetPacket*)pSession->api_queue.dequeue();
 
-        LOGI("wCMD = %d", pPacket->header.wCMD);
-        LOGI("handle packet len: %d", pPacket->bodyLen);
-
         if (pPacket != NULL) {
+            LOGI("wCMD = %d", pPacket->header.wCMD);
+            LOG("handle packet len: %d", pPacket->bodyLen);
+
+            Network::Packet *pNetPacket = new Network::Packet(pPacket->body, pPacket->bodyLen);
+            pNetPacket->setCMD(pPacket->header.wCMD);
+
+            if (pNetPacket->getCMD() == CMD_CS_REQ_SERVER_ADDR) {
+                pSession->on_CS_REQ_SERVER_ADDR(pNetPacket);
+            }
             delete pPacket;
         } else {
             LOGD("received NULL packet, skipping");
@@ -55,13 +76,6 @@ void *Session::PacketRoutine(void *arg) {
             }
             LOG("Received %d bytes session_id %d", len, asockfd);
             LOG("packet_id: %d, packet_len: %d", pNetHeader->wCMD, pNetHeader->wLen);
-            byte *body = new byte[pNetHeader->wLen -3];
-
-            len = recv(asockfd, body, pNetHeader->wLen -3, 0);
-            if (len != pNetHeader->wLen -3) {
-                LOGE("ERROR on recv");
-                continue;
-            }
 
             NetPacket *pNetPacket = new NetPacket();
             pNetPacket->header.byStartFlag = pNetHeader->byStartFlag;
@@ -69,12 +83,22 @@ void *Session::PacketRoutine(void *arg) {
             pNetPacket->header.byReserve = pNetHeader->byReserve;
             pNetPacket->header.wCMD = pNetHeader->wCMD;
 
-            pNetPacket->bodyLen = pNetHeader->wLen -3;
-            pNetPacket->body = new byte[pNetPacket->bodyLen];
-            memcpy(pNetPacket->body, body, pNetPacket->bodyLen);
+            if ((pNetPacket->header.wLen - 3) > 0) {
+                byte *body = new byte[pNetHeader->wLen -3];
 
-            delete body;
+                len = recv(asockfd, body, pNetHeader->wLen -3, 0);
+                if (len != pNetHeader->wLen -3) {
+                    LOGE("ERROR on recv");
+                    continue;
+                }
 
+                pNetPacket->bodyLen = pNetHeader->wLen -3;
+                pNetPacket->body = NULL;
+                pNetPacket->body = new byte[pNetPacket->bodyLen];
+                memcpy(pNetPacket->body, body, pNetPacket->bodyLen);
+
+                delete body;
+            }
             pSession->handlePacket(pNetPacket);
         }
         //delete[] header;
@@ -84,7 +108,14 @@ void *Session::PacketRoutine(void *arg) {
     return NULL;
 }
 
-void Session::sendPacket(byte *pBuf, uint mlen) {
+void Session::sendPacket(NetPacket *pPacket) {
+    pthread_mutex_lock(&mutex);
+    sendRaw(pPacket->header.getBytes(), sizeof(tagNetHeader));
+    sendRaw(pPacket->body, pPacket->bodyLen);
+    pthread_mutex_unlock(&mutex);
+}
+
+void Session::sendRaw(byte *pBuf, uint mlen) {
     pthread_mutex_lock(&mutex);
     int len = send(sockfd, pBuf, mlen, 0);
     if (len < 0 || len != (int)mlen) {
@@ -112,7 +143,7 @@ int Session::handlePacket(NetPacket *pNetPacket) {
     return -1;
 }
 
-Session::Session(int asockfd) : api_queue()
+Session::Session(int asockfd) : _user(NULL), api_queue()
 {
     LOGD("Session::Session(int asockfd)");
     sockfd = asockfd;
