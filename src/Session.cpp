@@ -60,8 +60,45 @@ void *Session::EvtProcRoutine(void *arg)
             pNetPacket->setCMD(pPacket->header.wCMD);
 
             if (pNetPacket->getCMD() == CMD_CS_REQ_SERVER_ADDR) {
+                LOGD("CMD_CS_REQ_SERVER_ADDR");
                 pSession->on_CS_REQ_SERVER_ADDR(pNetPacket);
             }
+
+            if (pNetPacket->getCMD() == CMD_CS_CONNECT) {
+                LOGD("CMD_CS_CONNECT");
+                if (pSession->_user != NULL) {
+                    LOGI("user already connected");
+                    //::Network::Packet * pAck = new ::Network::Packet();
+                    //pAck->Write2(-11);
+                    //pSession->sendPacket(pAck->MakeNetPacket(CMD_CS_CONNECT));
+                }
+
+                pSession->_user = new User();
+                pSession->_user->SetSession(pSession);
+            }
+
+            if (pNetPacket->getCMD() == CMD_CS_RECONNECT) {
+                LOGD("CMD_CS_RECONNECT");
+
+                if (pSession->_user == NULL) {
+                    ::Network::Packet * pAck = new ::Network::Packet();
+                    pAck->Write2(-1);
+                    pSession->sendPacket(pAck->MakeNetPacket(CMD_SC_RECONNECT));
+                    continue;
+                } else {
+                    LOGW("TODO reconnect");
+                }
+            }
+
+            if (pSession->_user == NULL) {
+                LOGI("user not connected");
+                delete pNetPacket;
+                delete pPacket;
+                continue;
+            }
+
+            // TODO get user State and call command handler
+
             delete pNetPacket;
             delete pPacket;
         } else {

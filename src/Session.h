@@ -7,6 +7,7 @@
 #include <Encryption.h>
 #include <ysf_queue3.h>
 #include <ysf_sem.h>
+#include <User.h>
 
 #include <errno.h>
 #include <string.h>
@@ -35,7 +36,7 @@ private:
     pthread_t pid;
     int sockfd;
 
-    User* _user;
+    User *_user;
 
     ysf_semaphore_t m_cmd_sem;
     ysf_queue3 api_queue;

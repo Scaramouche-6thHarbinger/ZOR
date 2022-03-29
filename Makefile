@@ -8,6 +8,7 @@ LOCAL_SRC_FILES := \
 	src/Session.cpp \
 	src/NetworkManager.cpp \
 	src/Packet.cpp \
+	src/User.cpp \
 	src/include/util/utils3/ysf_queue3.cpp
 
 LOCAL_TEST_FILE := \
