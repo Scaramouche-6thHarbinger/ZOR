@@ -20,10 +20,10 @@ public:
 	byte*				getBytes(void) {
 		byte *p = new byte[6];
 		p[0] = byStartFlag;
-		LOGW("wlen=%d", wLen);
+		LOG("wlen=%d", wLen);
 		ByteArray::SetUInt16(p, 1, wLen);
 		p[3] = byReserve;
-		LOGW("wcmd=%d", wCMD);
+		LOG("wcmd=%d", wCMD);
 		ByteArray::SetUInt16(p, 4, wCMD);
 		return p;
 	}

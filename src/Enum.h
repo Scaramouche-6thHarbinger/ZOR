@@ -1,0 +1,15 @@
+#ifndef __ENUM_H__
+#define __ENUM_H__
+
+enum INVEN_BAG_TYPE {
+    BAG_TYPE_NORMAL = 0,
+    BAG_TYPE_ACCESSORY,
+    BAG_TYPE_MISC,
+    BAG_TYPE_TITLE,
+    BAG_TYPE_WAREHOUSE,
+    BAG_TYPE_FAIRY,
+    BAG_TYPE_BATTLE_PET,
+    BAG_TYPE_MAX
+};
+
+#endif // __ENUM_H__

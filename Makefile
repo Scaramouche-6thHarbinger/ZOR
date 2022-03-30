@@ -9,7 +9,8 @@ LOCAL_SRC_FILES := \
 	src/NetworkManager.cpp \
 	src/Packet.cpp \
 	src/User.cpp \
-	src/include/util/utils3/ysf_queue3.cpp
+	src/include/util/utils3/ysf_queue3.cpp \
+	src/NLogic/Bag.cpp
 
 LOCAL_TEST_FILE := \
 	main_client.cpp
@@ -22,7 +23,8 @@ INCLUDES := \
 	src/include/util \
 	src/include/util/utils3 \
 	src/ \
-	src/util
+	src/util \
+	src/NLogic
 
 LOCAL_C_INCLUDES = $(addprefix -I, $(INCLUDES))
 
