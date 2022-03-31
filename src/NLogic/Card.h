@@ -92,5 +92,5 @@ private:
 	int					s_Max;
 };
 
-} /* namespace NLogic */ } /* namespace ProjectZ */
-#endif /* CARD_H_ */
+} // namespace NLogic
+#endif // __CARD_H__
