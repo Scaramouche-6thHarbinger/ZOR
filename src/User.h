@@ -4,7 +4,9 @@
 #include <util.h>
 #include <Session.h>
 #include <Enum.h>
+
 #include <Bag.h>
+#include <Equip.h>
 
 #include <map>
 #include <algorithm>
@@ -15,6 +17,7 @@ class Session;
 
 namespace NLogic {
 class Bag;
+class Equip;
 }
 
 class User {
@@ -155,6 +158,25 @@ private:
 
     BAGVECTOR _clsBagVector;
 
+    NLogic::Equip *		_equip;
+	NLogic::Buff *		_buff;
+	NLogic::Status *		_status;
+	NLogic::Card *		_card;
+	NLogic::SocialInfo * _socialInfo;
+	NLogic::MailBox *	_mailBox;
+	NLogic::BattleAfterEffect * _battleAfterEffect;
+	NLogic::VirtualCurrency *	_virtualCurrency;
+	NLogic::Score *		_score;
+	NLogic::Reward *		_reward;
+	NLogic::BattleResult * _battleResult;
+	NLogic::UserLocation * _userLocation;
+	NLogic::Trade *		_trade;
+	NLogic::MemcachedKey * _memKey;
+	NLogic::BackEndServerInfo * _backEndServerInfo;
+	NLogic::QuestInfo *	_questInfo;
+	NLogic::Fishing * _fishing;
+	NLogic::Stamina * _stamina;
+
     State *_state;
     Session * _session;
 
@@ -162,6 +184,44 @@ private:
 	bool				_bDelUser;
 	bool				_bZENEvent;
 	bool				_bBattleReconnect;
+    NLogic::Space *	_space;
+	NLogic::Space *	_world;
+	NLogic::Space *	_reserveSpace;
+	int 				_worldIndex;
+	NLogic::Battle *	_battle;
+
+	EnumState			_enumStateType;
+	NLogic::Party *	_party;
+	bool				_partyAccept;
+
+	std::vector<int>	_array_dungeon_clear_info;
+	std::vector<int>	_array_bag_order_info;
+	bool				_battle_aftereffect;
+
+	unsigned long		_latency;
+
+	unsigned int		_refCount;
+	time_t				_characterInfoSetTime;
+	time_t				_loginTime;
+
+public:
+	void 				SetSocialID(const char * socialID) { _socialID = socialID; }
+	std::string &		GetSocialID() { return _socialID; }
+
+	void 				SetUserNickName(const char * nickName) { _userNickName = nickName; }
+	std::string &		GetUserNickName() { return _userNickName; }
+
+	void 				Setuuid(const char * uuid) { _uuid = uuid; }
+	std::string &		Getuuid() { return _uuid; }
+
+	void				SetCompany(uint32_t company) { _company = company; }
+	uint32_t			GetCompany() { return _company; }
+
+	void				SetSaleCode(uint32_t sale_code) { _sale_code = sale_code; }
+	uint32_t			GetSaleCode() { return _sale_code; }
+
+	void 				SetUserInfo(UserInfo & userInfo);
+	UserInfo &			GetUserInfo() { return _userInfo; }
 };
 
 #endif // __USER_H__

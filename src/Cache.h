@@ -1,6 +1,5 @@
 #ifndef __Cache_H__
 #define __Cache_H__
-
 #include <string>
 #include <list>
 #include <vector>
@@ -98,6 +97,24 @@ struct UserInfo {
 	uint32_t	company;
 	uint32_t	sale_code;
 	uint32_t	u8intro_state;
+	uint32_t	wp_last_week;
+	uint32_t	wp_cur_week;
+	uint64_t	wp_reg_date;
+	uint32_t	array_tutorial[4];
+	std::string	uuid;
+	uint32_t	battle_aftereffect_time;
+	std::string	reward;
+	uint32_t	shard_Item_db_type;
+	uint64_t	wp_last_reg_date;
+
+	uint64_t	reserve1;
+	uint64_t	reserve2;
+	uint64_t	reserve3;
+	uint64_t	reserve4;
+	uint64_t	reserve5;
+
+	uint64_t	worldboss_hit;
+	uint64_t	worldboss_point;
 	UserInfo()	{
 		userseq = 0;
 		zen = 0;
@@ -109,6 +126,19 @@ struct UserInfo {
 		company = 0;
 		sale_code = 0;
 		u8intro_state = 0;
+		wp_last_week = 0;
+		wp_cur_week = 0;
+		wp_reg_date = 0;
+		battle_aftereffect_time = 0;
+		shard_Item_db_type = 0;
+		wp_last_reg_date = 0;
+		reserve1 = 0;
+		reserve2 = 0;
+		reserve3 = 0;
+		reserve4 = 0;
+		reserve5 = 0;
+		worldboss_hit = 0;
+		worldboss_point = 0;
 	}
 	int32_t Size() const {
 		int32_t nSize = 0;
@@ -127,6 +157,22 @@ struct UserInfo {
 		nSize += sizeof(uint32_t);
 		nSize += sizeof(uint32_t);
 		nSize += sizeof(uint32_t);
+		nSize += sizeof(uint32_t); // wp_last_week
+		nSize += sizeof(uint32_t); // wp_cur_week
+		nSize += sizeof(uint64_t); // wp_reg_date
+		nSize += sizeof(uint32_t) * 4; // array_tutorial
+		nSize += sizeof(int32_t); nSize += uuid.length(); // uuid
+		nSize += sizeof(uint32_t); // battle_aftereffect_time
+		nSize += sizeof(int32_t); nSize += reward.length(); // reward
+		nSize += sizeof(uint32_t); // shard_Item_db_type
+		nSize += sizeof(uint64_t); // wp_last_reg_date
+		nSize += sizeof(uint64_t); // reserve1
+		nSize += sizeof(uint64_t); // reserve2
+		nSize += sizeof(uint64_t); // reserve3
+		nSize += sizeof(uint64_t); // reserve4
+		nSize += sizeof(uint64_t); // reserve5
+		nSize += sizeof(uint64_t); // worldboss_hit
+		nSize += sizeof(uint64_t); // worldboss_point
 		return nSize;
 	}
 	bool Store(std::vector<char>& _buf_) const {
@@ -159,6 +205,26 @@ struct UserInfo {
 		(*(uint32_t*)(*_buf_)) = company; (*_buf_) += sizeof(uint32_t);
 		(*(uint32_t*)(*_buf_)) = sale_code; (*_buf_) += sizeof(uint32_t);
 		(*(uint32_t*)(*_buf_)) = u8intro_state; (*_buf_) += sizeof(uint32_t);
+		(*(uint32_t*)(*_buf_)) = wp_last_week; (*_buf_) += sizeof(uint32_t);
+		(*(uint32_t*)(*_buf_)) = wp_cur_week; (*_buf_) += sizeof(uint32_t);
+		(*(uint64_t*)(*_buf_)) = wp_reg_date; (*_buf_) += sizeof(uint64_t);
+		std::memcpy(*_buf_, array_tutorial, sizeof(uint32_t) * 4); (*_buf_) += sizeof(uint32_t) * 4;
+		(*(int32_t*)(*_buf_)) = (int32_t)uuid.length(); (*_buf_) += sizeof(int32_t);
+		std::memcpy(*_buf_, uuid.c_str(), uuid.length());
+		(*_buf_) += uuid.length();
+		(*(uint32_t*)(*_buf_)) = battle_aftereffect_time; (*_buf_) += sizeof(uint32_t);
+		(*(int32_t*)(*_buf_)) = (int32_t)reward.length(); (*_buf_) += sizeof(int32_t);
+		std::memcpy(*_buf_, reward.c_str(), reward.length());
+		(*_buf_) += reward.length();
+		(*(uint32_t*)(*_buf_)) = shard_Item_db_type; (*_buf_) += sizeof(uint32_t);
+		(*(uint64_t*)(*_buf_)) = wp_last_reg_date; (*_buf_) += sizeof(uint64_t);
+		(*(uint64_t*)(*_buf_)) = reserve1; (*_buf_) += sizeof(uint64_t);
+		(*(uint64_t*)(*_buf_)) = reserve2; (*_buf_) += sizeof(uint64_t);
+		(*(uint64_t*)(*_buf_)) = reserve3; (*_buf_) += sizeof(uint64_t);
+		(*(uint64_t*)(*_buf_)) = reserve4; (*_buf_) += sizeof(uint64_t);
+		(*(uint64_t*)(*_buf_)) = reserve5; (*_buf_) += sizeof(uint64_t);
+		(*(uint64_t*)(*_buf_)) = worldboss_hit; (*_buf_) += sizeof(uint64_t);
+		(*(uint64_t*)(*_buf_)) = worldboss_point; (*_buf_) += sizeof(uint64_t);
 		return true;
 	}
 	bool Load(const std::vector<char>& _buf_) {
@@ -190,6 +256,40 @@ struct UserInfo {
 		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&company, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
 		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&sale_code, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
 		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&u8intro_state, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// wp_last_week
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&wp_last_week, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// wp_cur_week
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&wp_cur_week, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// wp_reg_date
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&wp_reg_date, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// array_tutorial
+		std::memcpy(array_tutorial, *_buf_, sizeof(uint32_t) * 4); (*_buf_) += sizeof(uint32_t) * 4; nSize -= sizeof(uint32_t) * 4;
+		// uuid
+		int32_t uuid_length = 0; std::memcpy(&uuid_length, *_buf_, sizeof(int32_t)); (*_buf_) += sizeof(int32_t); nSize -= sizeof(int32_t);
+		uuid.assign((char*)*_buf_, uuid_length); (*_buf_) += uuid_length; nSize -= uuid_length;
+		// battle_aftereffect_time
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&battle_aftereffect_time, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// reward_length
+		int32_t reward_length = 0; std::memcpy(&reward_length, *_buf_, sizeof(int32_t)); (*_buf_) += sizeof(int32_t); nSize -= sizeof(int32_t);
+		reward.assign((char*)*_buf_, reward_length); (*_buf_) += reward_length; nSize -= reward_length;
+		// shard_Item_db_type
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&shard_Item_db_type, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// wp_last_reg_date
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&wp_last_reg_date, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// reserve1
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&reserve1, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// reserve2
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&reserve2, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// reserve3
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&reserve3, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// reserve4
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&reserve4, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// reserve5
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&reserve5, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// worldboss_hit
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&worldboss_hit, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// worldboss_point
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&worldboss_point, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
 		return true;
 	}
 }; //UserInfo
@@ -254,6 +354,7 @@ struct CharacterInfo {
 	uint32_t	ap_current;
 	uint32_t	ep_current;
 	uint32_t	ep_max;
+
 	uint64_t	weapon;
 	uint32_t	weapon_iconidx;
 	uint64_t	helmet;
@@ -267,27 +368,57 @@ struct CharacterInfo {
 	uint64_t	ring;
 	uint64_t	charm;
 	uint64_t	avartar;
+
+	uint32_t	avartar_iconidx;
+
 	uint64_t	vehicle;
+
+	uint32_t	vehicle_iconidx;
+
 	uint64_t	title;
 	uint64_t	fairy;
 	uint64_t	battlepet;
+
 	uint32_t	exp;
 	uint32_t	level;
 	uint32_t	str;
 	uint32_t	dex;
 	uint32_t	con;
 	uint32_t	spi;
+
 	QuickSlot	array_QuickSlot[8];
 	uint32_t	array_Skill[20];
 	uint32_t	gold;
-	uint32_t	array_tutorial[4];
-	int32_t	event_stamina;
+
+	int32_t		event_stamina;
 	uint64_t	recover_stamina_sec;
+
 	uint32_t	drill_status;
 	uint32_t	drill_time;
 	uint64_t	drill_start;
 	uint64_t	drill_end;
+
+	uint32_t	consecutive_win;
+	std::string	win_comment;
+
 	uint64_t	reg_date;
+
+	std::string	dungeon_clear_info;
+
+	std::string					bag_order_info;
+
+	std::string					buff_info;
+	std::string					battle_afterEffect_info;
+	uint32_t		daily_ep;
+
+	uint64_t 	name_tag;
+	uint32_t		name_tag_iconidx;
+
+	uint64_t		reserve1;
+	uint64_t		reserve2;
+	uint64_t		reserve3;
+	uint64_t		reserve4;
+	uint64_t		reserve5;
 	CharacterInfo()	{
 		characterseq = 0;
 		userSeq = 0;
@@ -311,7 +442,9 @@ struct CharacterInfo {
 		ring = 0;
 		charm = 0;
 		avartar = 0;
+		avartar_iconidx = 0; // NEW
 		vehicle = 0;
+		vehicle_iconidx = 0; // NEW
 		title = 0;
 		fairy = 0;
 		battlepet = 0;
@@ -328,7 +461,16 @@ struct CharacterInfo {
 		drill_time = 0;
 		drill_start = 0;
 		drill_end = 0;
+		consecutive_win = 0;
 		reg_date = 0;
+		daily_ep = 0;
+		name_tag = 0;
+		name_tag_iconidx = 0;
+		reserve1 = 0;
+		reserve2 = 0;
+		reserve3 = 0;
+		reserve4 = 0;
+		reserve5 = 0;
 	}
 	int32_t Size() const {
 		int32_t nSize = 0;
@@ -354,7 +496,9 @@ struct CharacterInfo {
 		nSize += sizeof(uint64_t);
 		nSize += sizeof(uint64_t);
 		nSize += sizeof(uint64_t);
+		nSize += sizeof(uint32_t); // avartar_iconidx
 		nSize += sizeof(uint64_t);
+		nSize += sizeof(uint32_t); // vehicle_iconidx
 		nSize += sizeof(uint64_t);
 		nSize += sizeof(uint64_t);
 		nSize += sizeof(uint64_t);
@@ -367,16 +511,26 @@ struct CharacterInfo {
 		for(int32_t i=0; i<8; i++) {
 			nSize += QuickSlot_Serializer::Size(array_QuickSlot[i]);
 		}
-		nSize += sizeof(uint32_t) * 20;
-		nSize += sizeof(uint32_t);
-		nSize += sizeof(uint32_t) * 4;
-		nSize += sizeof(int32_t);
-		nSize += sizeof(uint64_t);
-		nSize += sizeof(uint32_t);
-		nSize += sizeof(uint32_t);
-		nSize += sizeof(uint64_t);
-		nSize += sizeof(uint64_t);
-		nSize += sizeof(uint64_t);
+		nSize += sizeof(uint32_t) * 20;// array_Skill
+		nSize += sizeof(uint32_t); // gold
+		nSize += sizeof(int32_t); // event_stamina
+		nSize += sizeof(uint64_t); // recover_stamina_sec
+		nSize += sizeof(uint32_t) * 4; // drill_status, drill_time, drill_start, drill_end
+		nSize += sizeof(uint32_t); // consecutive_win
+		nSize += sizeof(int32_t); nSize += win_comment.length(); // win_comment
+		nSize += sizeof(uint64_t); // reg_date
+		nSize += sizeof(int32_t); nSize += dungeon_clear_info.length(); // dungeon_clear_info
+		nSize += sizeof(int32_t); nSize += bag_order_info.length(); // bag_order_info
+		nSize += sizeof(int32_t); nSize += buff_info.length(); // buff_info
+		nSize += sizeof(int32_t); nSize += battle_afterEffect_info.length(); // battle_afterEffect_info
+		nSize += sizeof(uint32_t); // daily_ep
+		nSize += sizeof(uint64_t); // name_tag
+		nSize += sizeof(uint32_t); // name_tag_iconidx
+		nSize += sizeof(uint64_t); // reserve1
+		nSize += sizeof(uint64_t); // reserve2
+		nSize += sizeof(uint64_t); // reserve3
+		nSize += sizeof(uint64_t); // reserve4
+		nSize += sizeof(uint64_t); // reserve5
 		return nSize;
 	}
 	bool Store(std::vector<char>& _buf_) const {
@@ -412,7 +566,9 @@ struct CharacterInfo {
 		(*(uint64_t*)(*_buf_)) = ring; (*_buf_) += sizeof(uint64_t);
 		(*(uint64_t*)(*_buf_)) = charm; (*_buf_) += sizeof(uint64_t);
 		(*(uint64_t*)(*_buf_)) = avartar; (*_buf_) += sizeof(uint64_t);
+		(*(uint32_t*)(*_buf_)) = avartar_iconidx; (*_buf_) += sizeof(uint32_t);
 		(*(uint64_t*)(*_buf_)) = vehicle; (*_buf_) += sizeof(uint64_t);
+		(*(uint32_t*)(*_buf_)) = vehicle_iconidx; (*_buf_) += sizeof(uint32_t);
 		(*(uint64_t*)(*_buf_)) = title; (*_buf_) += sizeof(uint64_t);
 		(*(uint64_t*)(*_buf_)) = fairy; (*_buf_) += sizeof(uint64_t);
 		(*(uint64_t*)(*_buf_)) = battlepet; (*_buf_) += sizeof(uint64_t);
@@ -425,16 +581,54 @@ struct CharacterInfo {
 		for(int32_t i=0; i<8; i++) {
 			if(false == QuickSlot_Serializer::Store(_buf_, array_QuickSlot[i])) { return false; }
 		}
-		std::memcpy(*_buf_, array_Skill, sizeof(uint32_t) * 20); (*_buf_) += sizeof(uint32_t) * 20;
-		(*(uint32_t*)(*_buf_)) = gold; (*_buf_) += sizeof(uint32_t);
-		std::memcpy(*_buf_, array_tutorial, sizeof(uint32_t) * 4); (*_buf_) += sizeof(uint32_t) * 4;
-		(*(int32_t*)(*_buf_)) = event_stamina; (*_buf_) += sizeof(int32_t);
-		(*(uint64_t*)(*_buf_)) = recover_stamina_sec; (*_buf_) += sizeof(uint64_t);
-		(*(uint32_t*)(*_buf_)) = drill_status; (*_buf_) += sizeof(uint32_t);
-		(*(uint32_t*)(*_buf_)) = drill_time; (*_buf_) += sizeof(uint32_t);
-		(*(uint64_t*)(*_buf_)) = drill_start; (*_buf_) += sizeof(uint64_t);
-		(*(uint64_t*)(*_buf_)) = drill_end; (*_buf_) += sizeof(uint64_t);
+		std::memcpy(*_buf_, array_Skill, sizeof(uint32_t) * 20); (*_buf_) += sizeof(uint32_t) * 20; // array_Skill
+		(*(uint32_t*)(*_buf_)) = gold; (*_buf_) += sizeof(uint32_t); // gold
+		(*(int32_t*)(*_buf_)) = event_stamina; (*_buf_) += sizeof(int32_t); // event_stamina
+		(*(uint64_t*)(*_buf_)) = recover_stamina_sec; (*_buf_) += sizeof(uint64_t); // recover_stamina_sec
+		(*(uint32_t*)(*_buf_)) = drill_status; (*_buf_) += sizeof(uint32_t); // drill_status
+		(*(uint32_t*)(*_buf_)) = drill_time; (*_buf_) += sizeof(uint32_t); // drill_time
+		(*(uint64_t*)(*_buf_)) = drill_start; (*_buf_) += sizeof(uint64_t); // drill_start
+		(*(uint64_t*)(*_buf_)) = drill_end; (*_buf_) += sizeof(uint64_t); // drill_end
+		// consecutive_win
+		(*(uint32_t*)(*_buf_)) = consecutive_win; (*_buf_) += sizeof(uint32_t);
+		// string win_comment
+		(*(int32_t*)(*_buf_)) = (int32_t)win_comment.length(); (*_buf_) += sizeof(int32_t);
+		std::memcpy(*_buf_, win_comment.c_str(), win_comment.length());
+		(*_buf_) += win_comment.length();
 		(*(uint64_t*)(*_buf_)) = reg_date; (*_buf_) += sizeof(uint64_t);
+		// dungeon_clear_info
+		(*(int32_t*)(*_buf_)) = (int32_t)dungeon_clear_info.length(); (*_buf_) += sizeof(int32_t);
+		std::memcpy(*_buf_, dungeon_clear_info.c_str(), dungeon_clear_info.length());
+		(*_buf_) += dungeon_clear_info.length();
+		// bag_order_info
+		(*(int32_t*)(*_buf_)) = (int32_t)bag_order_info.length(); (*_buf_) += sizeof(int32_t);
+		std::memcpy(*_buf_, bag_order_info.c_str(), bag_order_info.length());
+		(*_buf_) += bag_order_info.length();
+		// buff_info
+		(*(int32_t*)(*_buf_)) = (int32_t)buff_info.length(); (*_buf_) += sizeof(int32_t);
+		std::memcpy(*_buf_, buff_info.c_str(), buff_info.length());
+		(*_buf_) += buff_info.length();
+		// battle_afterEffect_info
+		(*(int32_t*)(*_buf_)) = (int32_t)battle_afterEffect_info.length(); (*_buf_) += sizeof(int32_t);
+		std::memcpy(*_buf_, battle_afterEffect_info.c_str(), battle_afterEffect_info.length());
+		(*_buf_) += battle_afterEffect_info.length();
+		// daily_ep
+		(*(uint32_t*)(*_buf_)) = daily_ep; (*_buf_) += sizeof(uint32_t);
+		// name_tag
+		(*(uint64_t*)(*_buf_)) = name_tag; (*_buf_) += sizeof(uint64_t);
+		// name_tag_iconidx
+		(*(uint32_t*)(*_buf_)) = name_tag_iconidx; (*_buf_) += sizeof(uint32_t);
+
+		// reserve1
+		(*(uint64_t*)(*_buf_)) = reserve1; (*_buf_) += sizeof(uint64_t);
+		// reserve2
+		(*(uint64_t*)(*_buf_)) = reserve2; (*_buf_) += sizeof(uint64_t);
+		// reserve3
+		(*(uint64_t*)(*_buf_)) = reserve3; (*_buf_) += sizeof(uint64_t);
+		// reserve4
+		(*(uint64_t*)(*_buf_)) = reserve4; (*_buf_) += sizeof(uint64_t);
+		// reserve5
+		(*(uint64_t*)(*_buf_)) = reserve5; (*_buf_) += sizeof(uint64_t);
 		return true;
 	}
 	bool Load(const std::vector<char>& _buf_) {
@@ -467,7 +661,9 @@ struct CharacterInfo {
 		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&ring, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
 		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&charm, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
 		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&avartar, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&avartar_iconidx, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
 		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&vehicle, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&vehicle_iconidx, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
 		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&title, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
 		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&fairy, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
 		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&battlepet, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
@@ -484,14 +680,49 @@ struct CharacterInfo {
 		}
 		std::memcpy(array_Skill, *_buf_, sizeof(uint32_t) * 20); (*_buf_) += sizeof(uint32_t) * 20; nSize -= sizeof(uint32_t) * 20;
 		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&gold, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
-		std::memcpy(array_tutorial, *_buf_, sizeof(uint32_t) * 4); (*_buf_) += sizeof(uint32_t) * 4; nSize -= sizeof(uint32_t) * 4;
 		if(sizeof(int32_t) > nSize) { return false; }	std::memcpy(&event_stamina, *_buf_, sizeof(int32_t));	(*_buf_) += sizeof(int32_t); nSize -= sizeof(int32_t);
 		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&recover_stamina_sec, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
 		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&drill_status, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
 		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&drill_time, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
 		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&drill_start, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
 		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&drill_end, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&consecutive_win, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// string win_comment
+		int32_t win_comment_length = 0; std::memcpy(&win_comment_length, *_buf_, sizeof(int32_t)); (*_buf_) += sizeof(int32_t); nSize -= sizeof(int32_t);
+		win_comment.assign((char*)*_buf_, win_comment_length); (*_buf_) += win_comment_length; nSize -= win_comment_length;
 		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&reg_date, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
+
+		// string dungeon_clear_info
+		int32_t dungeon_clear_info_length = 0; std::memcpy(&dungeon_clear_info_length, *_buf_, sizeof(int32_t)); (*_buf_) += sizeof(int32_t); nSize -= sizeof(int32_t);
+		dungeon_clear_info.assign((char*)*_buf_, dungeon_clear_info_length); (*_buf_) += dungeon_clear_info_length; nSize -= dungeon_clear_info_length;
+
+		// string bag_order_info
+		int32_t bag_order_info_length = 0; std::memcpy(&bag_order_info_length, *_buf_, sizeof(int32_t)); (*_buf_) += sizeof(int32_t); nSize -= sizeof(int32_t);
+		bag_order_info.assign((char*)*_buf_, bag_order_info_length); (*_buf_) += bag_order_info_length; nSize -= bag_order_info_length;
+		
+		// string buff_info
+		int32_t buff_info_length = 0; std::memcpy(&buff_info_length, *_buf_, sizeof(int32_t)); (*_buf_) += sizeof(int32_t); nSize -= sizeof(int32_t);
+		buff_info.assign((char*)*_buf_, buff_info_length); (*_buf_) += buff_info_length; nSize -= buff_info_length;
+
+		// string battle_afterEffect_info
+		int32_t battle_afterEffect_info_length = 0; std::memcpy(&battle_afterEffect_info_length, *_buf_, sizeof(int32_t)); (*_buf_) += sizeof(int32_t); nSize -= sizeof(int32_t);
+		battle_afterEffect_info.assign((char*)*_buf_, battle_afterEffect_info_length); (*_buf_) += battle_afterEffect_info_length; nSize -= battle_afterEffect_info_length;
+
+		// daily_ep;
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&daily_ep, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// uint64_t name_tag
+		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&name_tag, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
+		// uint32_t name_tag_iconidx;
+		if(sizeof(uint32_t) > nSize) { return false; }	std::memcpy(&name_tag_iconidx, *_buf_, sizeof(uint32_t));	(*_buf_) += sizeof(uint32_t); nSize -= sizeof(uint32_t);
+		// uint64_t reserve1;
+		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&reserve1, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
+		// uint64_t reserve2;
+		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&reserve2, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
+		// uint64_t reserve3;
+		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&reserve3, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
+		// uint64_t reserve4;
+		if(sizeof(uint64_t) > nSize) { return false; }	std::memcpy(&reserve4, *_buf_, sizeof(uint64_t));	(*_buf_) += sizeof(uint64_t); nSize -= sizeof(uint64_t);
+		// uint64_t reserve5;
 		return true;
 	}
 }; //CharacterInfo
