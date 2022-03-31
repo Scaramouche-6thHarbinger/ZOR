@@ -1,33 +1,25 @@
-/*
- * SocialInfo.h
- *
- *  Created on: 2013. 10. 28.
- *      Author: the2
- */
-
-#ifndef SOCIALINFO_H_
-#define SOCIALINFO_H_
+#ifndef __SOCIALINFO_H__
+#define __SOCIALINFO_H__
 
 #include <string>
 
-namespace ProjectZ {
 namespace NLogic {
 
 class SocialInfo {
 
 public:
-	// íŒŒí‹° ì´ˆëŒ€ ì°¨ë‹¨ ì—¬ë¶€.
+	// ?ŒŒ?‹° ì´ˆë?? ì°¨ë‹¨ ?—¬ë¶?.
 	enum class EnumInviteState : int {
 		__NONE__ = -1,
 
 		ALL_BLOCK,					// 0 : ëª¨ë‘ ì°¨ë‹¨,
-		DUNGEON_ON,				// 1 : ë˜ì „ ì´ˆëŒ€ ON
-		PVP_ON,					// 2 : PVP ì´ˆëŒ€ ON
-		DUNGEON_PVP_ON,			// 3 : (1+2) : ë˜ì „ ì´ˆëŒ€ ON, PVP ì´ˆëŒ€ ON
-		BATTLE_ROYAL_ON,			// 4 : ë°°í‹€ë¡œì–„ ì´ˆëŒ€ ON
-		DUNGEON_BATTLE_ROYAL_ON,	// 5 (1+4) : ë˜ì „ ì´ˆëŒ€ ON, ë°°í‹€ë¡œì–„ ON
-		PVP_BATTLE_ROYAL_ON,		// 6 (2+4) : PVP ì´ˆëŒ€ ON, ë°°í‹€ë¡œì–„ ì´ˆëŒ€ ON
-		ALL_ON,					// 7 (1+2+4) : ëª¨ë‘ ì´ˆëŒ€ ê°€ëŠ¥
+		DUNGEON_ON,				// 1 : ?˜? „ ì´ˆë?? ON
+		PVP_ON,					// 2 : PVP ì´ˆë?? ON
+		DUNGEON_PVP_ON,			// 3 : (1+2) : ?˜? „ ì´ˆë?? ON, PVP ì´ˆë?? ON
+		BATTLE_ROYAL_ON,			// 4 : ë°°í??ë¡œì–„ ì´ˆë?? ON
+		DUNGEON_BATTLE_ROYAL_ON,	// 5 (1+4) : ?˜? „ ì´ˆë?? ON, ë°°í??ë¡œì–„ ON
+		PVP_BATTLE_ROYAL_ON,		// 6 (2+4) : PVP ì´ˆë?? ON, ë°°í??ë¡œì–„ ì´ˆë?? ON
+		ALL_ON,					// 7 (1+2+4) : ëª¨ë‘ ì´ˆë?? ê°??Š¥
 
 		__MAX__,
 	};
@@ -39,9 +31,9 @@ public:
 		int				_invite_blocked;
 		int				_profile_opened;
 		int				_gender;
-		int				_isGenderOpen;	// ì„±ë³„ ê³µê°œ ì—¬ë¶€ ( 1: open, 0 : block)
+		int				_isGenderOpen;	// ?„±ë³? ê³µê°œ ?—¬ë¶? ( 1: open, 0 : block)
 		std::string		_birthday;
-		int				_isBirthdayOpen;	// ìƒì¼ ê³µê°œ ì—¬ë¶€.
+		int				_isBirthdayOpen;	// ?ƒ?¼ ê³µê°œ ?—¬ë¶?.
 
 		Data() : _heart_count(0), _heart_blocked(0), _invite_blocked(7), _profile_opened(1), _gender(0), _isGenderOpen(1), _isBirthdayOpen(1) {}
 		void Clear()
@@ -70,7 +62,5 @@ private:
 	Data * _data;
 };
 
-} /* namespace NLogic */
-} /* namespace ProjectZ */
-
-#endif /* SOCIALINFO_H_ */
+} // namespace NLogic
+#endif // __SOCIALINFO_H__

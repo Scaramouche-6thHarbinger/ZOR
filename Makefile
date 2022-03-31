@@ -10,7 +10,12 @@ LOCAL_SRC_FILES := \
 	src/Packet.cpp \
 	src/User.cpp \
 	src/include/util/utils3/ysf_queue3.cpp \
-	src/NLogic/Bag.cpp
+	src/NLogic/Bag.cpp \
+	src/NLogic/Buff.cpp \
+	src/NLogic/Card.cpp \
+	src/NLogic/Item.cpp \
+	src/NLogic/SocialInfo.cpp \
+	src/NLogic/Status.cpp
 
 LOCAL_TEST_FILE := \
 	main_client.cpp

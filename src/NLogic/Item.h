@@ -7,7 +7,9 @@ namespace NLogic {
 
 class Item
 {
-
+public:
+    Item();
+    ~Item();
 };
 
 }

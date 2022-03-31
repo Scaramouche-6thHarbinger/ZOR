@@ -168,6 +168,7 @@ private:
 	NLogic::Buff *		_buff;
 	NLogic::Status *		_status;
 	NLogic::Card *		_card;
+	/**
 	NLogic::SocialInfo * _socialInfo;
 	NLogic::MailBox *	_mailBox;
 	NLogic::BattleAfterEffect * _battleAfterEffect;
@@ -182,6 +183,7 @@ private:
 	NLogic::QuestInfo *	_questInfo;
 	NLogic::Fishing * _fishing;
 	NLogic::Stamina * _stamina;
+	**/
 
     State *_state;
     Session * _session;
@@ -190,14 +192,14 @@ private:
 	bool				_bDelUser;
 	bool				_bZENEvent;
 	bool				_bBattleReconnect;
-    NLogic::Space *	_space;
-	NLogic::Space *	_world;
-	NLogic::Space *	_reserveSpace;
+    //NLogic::Space *	_space;
+	//NLogic::Space *	_world;
+	//NLogic::Space *	_reserveSpace;
 	int 				_worldIndex;
-	NLogic::Battle *	_battle;
+	//NLogic::Battle *	_battle;
 
 	EnumState			_enumStateType;
-	NLogic::Party *	_party;
+	//NLogic::Party *	_party;
 	bool				_partyAccept;
 
 	std::vector<int>	_array_dungeon_clear_info;
