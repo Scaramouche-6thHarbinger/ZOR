@@ -6,7 +6,10 @@
 #include <Enum.h>
 
 #include <Bag.h>
+#include <Buff.h>
 #include <Equip.h>
+#include <Status.h>
+#include <Card.h>
 
 #include <map>
 #include <algorithm>
@@ -18,6 +21,9 @@ class Session;
 namespace NLogic {
 class Bag;
 class Equip;
+class Buff;
+class Status;
+class Card;
 }
 
 class User {

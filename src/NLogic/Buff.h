@@ -1,10 +1,3 @@
-/*
- * Buff.h
- *
- *  Created on: 2013. 10. 21.
- *      Author: jjaehuny
- */
-
 #ifndef __BUFF_H__
 #define __BUFF_H__
 

@@ -72,6 +72,8 @@ Buff::GetActiveBuffCount(unsigned int nTime)
 void
 Buff::SetVIPBuff()
 {
+	LOGW("TODO : Buff::SetVIPBuff()");
+	/**
 	if (false == NResource::Static::Instance().GetContentsOpenResource()->IsOpen(VIP_SYSTEM))
 	{
 		DEBUGLOG("false == NResource::Static::Instance().GetContentsOpenResource()->IsOpen(VIP_SYSTEM)");
@@ -145,11 +147,14 @@ Buff::SetVIPBuff()
 	}
 
 	_user->FlushUserInfoCache();
+	**/
 }
 
 void
 Buff::RefleshVIPBuff()
 {
+	LOGW("TODO : Buff::RefleshVIPBuff()");
+	/**
 	if (0 >= _user->GetUserInfo().reserve3)
 		return;
 
@@ -173,6 +178,7 @@ Buff::RefleshVIPBuff()
 	_user->GetUserInfo().reserve5 = curtime;
 
 	SetVIPBuff();
+	**/
 }
 
 int
@@ -189,4 +195,4 @@ Buff::GetItemDropConstVIP()
 	return _itemDropConstVIP;
 }
 
-} /*NLogic*/ } /* namespace ProjectZ */
+} /*NLogic*/
