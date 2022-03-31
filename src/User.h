@@ -15,6 +15,7 @@
 #include <algorithm>
 
 #include <Cache.h>
+#include <Constant.h>
 
 class Session;
 
@@ -230,6 +231,9 @@ public:
 
 	void 				SetUserInfo(UserInfo & userInfo);
 	UserInfo &			GetUserInfo() { return _userInfo; }
+
+	void				SetState(State * state);
+	State *				GetState() { return _state; }
 };
 
 #endif // __USER_H__
