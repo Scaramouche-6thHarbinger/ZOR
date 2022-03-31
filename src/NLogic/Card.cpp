@@ -140,7 +140,7 @@ Card::GetDungeonRewardFlag()
 void
 Card::SetDungeonRewardFlagZEN(bool bFlag)
 {
-	bDungeonRewardFlagZEN = bFlag;namespace ProjectZ { 
+	bDungeonRewardFlagZEN = bFlag;
 }
 
 bool
