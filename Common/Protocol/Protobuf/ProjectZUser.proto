@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectZ.Common.Protocol.Protobuf";
+
+import "UserInfo.proto";
+import "CharacterInfo.proto";
+import "SocialInfo.proto";
+
+message ProjectZUser {
+	string social_id = 1;
+	UserInfo info = 2;
+	SocialInfo social = 3;
+	repeated CharacterInfo character = 4; // 8 CharacterInfo
+}

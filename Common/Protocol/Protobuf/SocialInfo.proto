@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectZ.Common.Protocol.Protobuf";
+
+message SocialInfo {
+    uint32 heart_count = 1;
+    int32 heart_blocked = 2;
+    int32 invite_blocked = 3;
+    int32 profile_opened = 4;
+    int32 gender = 5;
+    int32 isGenderOpen = 6;
+    string birthday = 7;
+    int32 isBirthdayOpen = 8;
+}

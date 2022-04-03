@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectZ.Common.Protocol.Protobuf";
+
+message QuickSlot {
+    uint32  type = 1;
+    uint32	index = 2;
+}

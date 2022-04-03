@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectZ.Common.Protocol.Protobuf";
+
+import "QuickSlot.proto";
+
+message CharacterInfo {
+    uint32	characterseq = 1;
+	uint32	userSeq = 2;
+	uint32	classtype = 3;
+	uint32	slotindex = 4;
+	uint32	remain_stat_point = 5;
+	uint32	remain_skill_point = 6;
+	uint32	ap_current = 7;
+	uint32	ep_current = 8;
+	uint32	ep_max = 9;
+
+	uint64	weapon = 10;
+	uint32	weapon_iconidx = 11;
+	uint64	helmet = 12;
+	uint32	helmet_iconidx = 13;
+	uint64	armor = 14;
+	uint32	armor_iconidx = 15;
+	uint64	glove = 16;
+	uint64	shoes = 17;
+	uint64	necklace = 18;
+	uint64	cloak = 19;
+	uint64	ring = 20;
+	uint64	charm = 21;
+	uint64	avatar = 22;
+    uint32	avartar_iconidx = 23;
+	uint64	vehicle = 24;
+    uint32	vehicle_iconidx = 25;
+	uint64	title = 26;
+	uint64	fairy = 27;
+	uint64	battlepet = 28;
+
+	uint32	exp = 29;
+	uint32	level = 30;
+
+	uint32	str = 31;
+	uint32	dex = 32;
+	uint32	con = 33;
+	uint32	spi = 34;
+
+	repeated QuickSlot array_QuickSlot = 35; // 8 QuickSlot
+	repeated uint32	array_Skill = 36; // 20 Skill
+
+	uint32	gold = 37;
+
+	int32	event_stamina = 39;
+	uint64	recover_stamina_sec = 40;
+
+	uint32	drill_status = 41;
+	uint32	drill_time = 42;
+	uint64	drill_start = 43;
+	uint64	drill_end = 44;
+
+    uint32	consecutive_win = 45;
+	string	win_comment = 46;
+
+	uint64	reg_date = 47;
+
+    string	dungeon_clear_info = 48;
+
+	string	bag_order_info = 49;
+
+	string	buff_info = 50;
+	string	battle_afterEffect_info = 51;
+	uint32	daily_ep = 52;
+
+	uint64 	name_tag = 53;
+	uint32	name_tag_iconidx = 54;
+	
+
+	
+	uint64	reserve1 = 55;
+	uint64	reserve2 = 56;
+	uint64	reserve3 = 57;
+	uint64	reserve4 = 58;
+	uint64	reserve5 = 59;
+}

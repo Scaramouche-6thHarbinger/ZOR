@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectZ.Common.Protocol";
+
+message Slot {
+    bool	    open = 1;
+	uint32      character_seq = 2;
+	bool	    makeCharacter = 3;
+	uint32	    remainStatResetCount = 4;
+	uint32	    classtype = 5;
+	uint32	    level = 6;
+	uint64	    reg_date = 7;
+}

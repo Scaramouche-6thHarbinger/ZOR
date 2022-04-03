@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectZ.Common.Protocol.Protobuf";
+
+import "Slot.proto";
+import "CharacterInfo.proto";
+
+message UserInfo {
+    uint32			userseq = 1;
+	repeated Slot	array_Slot = 2; // 8 slots
+	// 0 slot :: reg_date -> DAILY_PET_REWARD data , 
+	// 4 slot :: reg_date -> LAST_WEEK_RANK_REWARD data
+	// 5 slot :: reg_date -> LAST_WEEK_RANK_FRIEND data
+	// 6 slot :: reg_date -> CONNECT_EVENT data
+	int32			main_slot_index = 3;
+	string			nickname = 4;
+	string			profile_url = 5;
+	uint32			score = 6;				// last week my ranking
+	uint32			heart_blocked = 7;	// last week friend count
+	uint32			invite_blocked = 8;
+	uint32			profile_opened = 9;
+	uint32			company = 10;
+	uint32			sale_code = 11;
+	uint32			u8intro_state = 12;
+	uint32			wp_last_week = 13;
+	uint32			wp_cur_week = 14;
+	uint64			wp_reg_date = 15;
+	repeated uint32	array_tutorial = 16; // 4 tutorial
+	string			uuid = 17;
+	uint32			battle_aftereffect_time = 18;
+	string			reward = 19;
+	uint32			shard_Item_db_type = 20;
+	uint64			wp_last_reg_date = 21;
+	
+	uint64			reserve1 = 22;
+	uint64			reserve2 = 23;
+	uint64			reserve3 = 24;
+	uint64			reserve4 = 25;
+	uint64			reserve5 = 26;
+	
+	uint64			worldboss_hit = 27;
+	uint64			worldboss_point = 28;
+}
