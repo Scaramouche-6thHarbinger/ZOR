@@ -13,6 +13,10 @@ namespace ProjectZ {
             byte class_type = req.U1();
             byte defaultstat = req.U1();
 
+            Console.WriteLine("| slot_number: " + slot_number);
+            Console.WriteLine("| class_type: " + class_type);
+            Console.WriteLine("| defaultstat: " + defaultstat);
+
             NetworkPacket rsp = new NetworkPacket(NetCMDTypes.ZNO_SC_SLOT_PLAYER_CREATE);
 
             if (slot_number < 0 || slot_number > 7) {
@@ -49,7 +53,7 @@ namespace ProjectZ {
                 con = new Random().Next(1, 11);
             }
 
-            int character_seq = 0;
+            int character_seq = 1;
 
             if (session.user.MainSlotIndex == -1) {
                 session.user.MainSlotIndex = (sbyte)slot_number;
@@ -90,6 +94,7 @@ namespace ProjectZ {
                 session.user.SetSlot(slot_number, slot);
 
                 CharacterInfo character = new CharacterInfo();
+                character.Slotindex = slot_number;
                 character.Characterseq = (uint)character_seq;
                 character.EventStamina = -1;
 
@@ -97,6 +102,8 @@ namespace ProjectZ {
             }
 
             session.user.SaveUser();
+
+            Console.WriteLine("+-------------------------------------------------------------------");
 
             // TODO GiveBaseItem(int slotIndex) in user class
 

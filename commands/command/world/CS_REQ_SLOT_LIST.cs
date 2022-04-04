@@ -19,13 +19,13 @@ namespace ProjectZ {
                 }
             }
 
-            rsp.U2((short)count);
+            rsp.U1((sbyte)count);
             foreach (var slot in session.user.Slots.Select((value, i) => new { i, value })) {
                 if (slot.value.Open == true) {
                     Console.WriteLine("| open slot_number: " + slot.i);
                     Console.WriteLine("+-------------------------------------------------------------------");
-                    rsp.U2((short)slot.i);
-                    rsp.U2((short)slot.value.RemainStatResetCount);
+                    rsp.U1((sbyte)slot.i);
+                    rsp.U1((sbyte)slot.value.RemainStatResetCount);
                 }
             }
 
@@ -35,12 +35,12 @@ namespace ProjectZ {
                     characterMaxCount++;
                 }
             }
-            rsp.U2((short)characterMaxCount);
+            rsp.U1((sbyte)characterMaxCount);
 
             foreach (var slot in session.user.Slots.Select((value, i) => new { i, value })) {
                 if (slot.value.Open == true && slot.value.MakeCharacter == true && slot.value.CharacterSeq != 0) {
-                    rsp.U2((short)session.user.Characters[slot.i].Slotindex);
-                    rsp.U2((short)session.user.Characters[slot.i].Classtype);
+                    rsp.U1((sbyte)session.user.Characters[slot.i].Slotindex);
+                    rsp.U1((sbyte)session.user.Characters[slot.i].Classtype);
                     rsp.U2((short)session.user.Characters[slot.i].Level);
                     // TODO: convert to "Wed Feb 13 15:46:11 2013" time format
                     String strTime = "Wed Feb 13 15:46:11 2013";
@@ -51,17 +51,17 @@ namespace ProjectZ {
                     rsp.U8((long)(session.user.Characters[slot.i].DrillEnd - session.user.Characters[slot.i].DrillStart));
 
                     if (session.user.Characters[slot.i].AvartarIconidx == 1000) {
-                        rsp.U2((short)session.user.Characters[slot.i].HelmetIconidx);
-                        rsp.U2((short)session.user.Characters[slot.i].ArmorIconidx);
-                        rsp.U2((short)session.user.Characters[slot.i].WeaponIconidx);
-                        rsp.U2((short)session.user.Characters[slot.i].WeaponIconidx);
-                        rsp.U2(0);
+                        rsp.U1((sbyte)session.user.Characters[slot.i].HelmetIconidx);
+                        rsp.U1((sbyte)session.user.Characters[slot.i].ArmorIconidx);
+                        rsp.U1((sbyte)session.user.Characters[slot.i].WeaponIconidx);
+                        rsp.U1((sbyte)session.user.Characters[slot.i].WeaponIconidx);
+                        rsp.U1(0);
                     } else {
-                        rsp.U2((short)(session.user.Characters[slot.i].AvartarIconidx + 100));
-                        rsp.U2((short)(session.user.Characters[slot.i].AvartarIconidx + 100));
-                        rsp.U2((short)(session.user.Characters[slot.i].AvartarIconidx + 100));
-                        rsp.U2((short)(session.user.Characters[slot.i].AvartarIconidx + 100));
-                        rsp.U2(0);
+                        rsp.U1((sbyte)(session.user.Characters[slot.i].AvartarIconidx + 100));
+                        rsp.U1((sbyte)(session.user.Characters[slot.i].AvartarIconidx + 100));
+                        rsp.U1((sbyte)(session.user.Characters[slot.i].AvartarIconidx + 100));
+                        rsp.U1((sbyte)(session.user.Characters[slot.i].AvartarIconidx + 100));
+                        rsp.U1(0);
                     }
                 }
             }
