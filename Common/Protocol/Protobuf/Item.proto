@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectZ.Common.Protocol.Protobuf";
+
+message Item {
+    int32 bag_type = 1;
+    int32 bag_slot_number = 2;	//u16
+    int32 stack_num = 3;
+    int32 class_type = 4;    	//1	char
+    int32 sub_type = 5;    	//1	char // sheet number
+    int32 tid = 6;        //2	short
+    int32 item_type = 7;
+    int32 iconidx = 8;
+
+    int32 cur_duration = 9;    //1	char
+    int32 max_duration = 10;    //1	char
+    int32 quantity = 11;    	//1	char
+    int32 set_type = 12;    	//1	char
+    int32 non_identity = 13;    //1	char
+    int32 cur_refine_step = 14;	//1	char
+    int32 quality = 15;    	//2	u8
+    int32 level = 16;        //2 u8
+
+    repeated int32 eff_type = 17; // length 7   //1	char
+    repeated int32 eff_pos = 18; // length 7   	//1	char
+    repeated int32 eff_value = 19;// length 7    //2 short
+
+    int32 open_upgrade_stone_slot = 20;	//1	char
+    int32 ability_enhance_rate = 21;	//1	char
+    int32 max_enhance_step = 22;	//1	char
+    int32 buy_use = 23;    	//1	char
+    int32 evolve_step = 24;    //1	char
+    int32 evolve_max = 25;    	//1	char
+    int32 evolve_point32 = 26;    //2	short
+    int32 evolve_percent = 27;    //1	char
+    int32 evolve_value = 28;    //2	short
+
+    int64 reg_date = 29;
+}

@@ -1,6 +1,7 @@
 using ProjectZ.Common.Protocol.Protobuf;
 using ProjectZ.Common.Protocol;
 using ProjectZ;
+using ProjectZ.Logic;
 using Google.Protobuf;
 
 namespace ProjectZ {
@@ -302,6 +303,15 @@ namespace ProjectZ {
 
         public void SaveUser() {
             File.WriteAllBytes(mUser.SocialId + ".mbn", mUser.ToByteArray());
+        }
+
+        public bool GiveBaseItem(int slot_index) {
+            Item item = new Item();
+            item.Tid = 0;
+            item.SubType = (int)EnumClassItemTableType.CLASS_ITEM_TABLE_WEAPON;
+            item.Quantity = 1;
+            item.ClassType = (int)this.Characters[slot_index].Classtype;
+            return true;
         }
     }
 }

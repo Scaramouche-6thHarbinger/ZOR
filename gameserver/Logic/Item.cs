@@ -1,3 +1,5 @@
+using ProjectZ.Common.Protocol.Protobuf;
+
 namespace ProjectZ.Logic {
     public class Item {
         public enum ItemStatus
@@ -20,120 +22,64 @@ namespace ProjectZ.Logic {
             EM_ITEM_STATUS_INVALID_ITEM	= 99,
         };
 
-        public struct Data {
-            int bag_type;
-            int bag_slot_number;
-            int stack_num;
-            int sub_type;
-            int class_type;
-            int tid;
-            int item_type;
-            int iconidx;
+        private ProjectZ.Common.Protocol.Protobuf.Item _item;
 
-            int cur_duration;
-            int max_duration;
-            int quantity;
-            int set_type;
-            int non_identity;
-            int cur_refine_step;
-            int quality;
-            int level;
-
-            int[] eff_type = new int[7];
-            int[] eff_pos = new int[7];
-            int[] eff_value = new int[7];
-
-            int open_upgrade_stone_slot;
-            int ability_enhance_rate;
-            int max_enhance_step;
-            int buy_use;
-            int evolve_step;
-            int evolve_max;
-            int evolve_point;
-            int evolve_percent;
-            int evolve_value;
-
-            long reg_date;
-
-            public Data() {
-                bag_type = 0;
-                bag_slot_number = 0;
-                stack_num = 0;
-                sub_type = 0;
-                class_type = 0;
-                tid = 0;
-                item_type = 0;
-                iconidx = 0;
-
-                cur_duration = 0;
-                max_duration = 0;
-                quantity = 0;
-                set_type = 0;
-                non_identity = 0;
-                cur_refine_step = 0;
-                quality = 0;
-                level = 0;
-
-                for (int i = 0; i < 7; i++) {
-                    eff_type[i] = 0;
-                    eff_pos[i] = 0;
-                    eff_value[i] = 0;
-                }
-
-                open_upgrade_stone_slot = 0;
-                ability_enhance_rate = 0;
-                max_enhance_step = 0;
-                buy_use = 0;
-                evolve_step = 0;
-                evolve_max = 0;
-                evolve_point = 0;
-                evolve_percent = 0;
-                evolve_value = 0;
-
-                reg_date = 0;
+        public int Tid {
+            get {
+                return _item.Tid;
             }
+            set {
+                _item.Tid = value;
+            }
+        }
 
-            public void Clear() {
-                bag_type = 0;
-                bag_slot_number = 0;
-                stack_num = 0;
-                sub_type = 0;
-                class_type = 0;
-                tid = 0;
-                item_type = 0;
-                iconidx = 0;
+        public int SubType {
+            get {
+                return _item.SubType;
+            }
+            set {
+                _item.SubType = value;
+            }
+        }
 
-                cur_duration = 0;
-                max_duration = 0;
-                quantity = 0;
-                set_type = 0;
-                non_identity = 0;
-                cur_refine_step = 0;
-                quality = 0;
-                level = 0;
+        public int Quantity {
+            get {
+                return _item.Quantity;
+            }
+            set {
+                _item.Quantity = value;
+            }
+        }
 
-                for (int i = 0; i < 7; i++) {
-                    eff_type[i] = 0;
-                    eff_pos[i] = 0;
-                    eff_value[i] = 0;
-                }
+        public int ClassType {
+            get {
+                return _item.ClassType;
+            }
+            set {
+                _item.ClassType = value;
+            }
+        }
 
-                open_upgrade_stone_slot = 0;
-                ability_enhance_rate = 0;
-                max_enhance_step = 0;
-                buy_use = 0;
-                evolve_step = 0;
-                evolve_max = 0;
-                evolve_point = 0;
-                evolve_percent = 0;
-                evolve_value = 0;
+        public int BagType {
+            get {
+                return _item.BagType;
+            }
+            set {
+                _item.BagType = value;
+            }
+        }
 
-                reg_date = 0;
+        public int BagSlotNumber {
+            get {
+                return _item.BagSlotNumber;
+            }
+            set {
+                _item.BagSlotNumber = value;
             }
         }
 
         public Item() {
-            
+            _item = new ProjectZ.Common.Protocol.Protobuf.Item();
         }
     }
 }
