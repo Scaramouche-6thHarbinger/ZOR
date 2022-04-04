@@ -3,8 +3,8 @@
 // Path: xldata_converter.cpp
 namespace NXLData {
     class item_class4 {
-        public const int ITEM_CLASS1_WEAPON04_MAX = 17;
-        public struct ITEM_CLASS1_WEAPON04 {
+        public const int ITEM_CLASS4_WEAPON04_MAX = 17;
+        public struct ITEM_CLASS4_WEAPON04 {
             public int ICON;
             public string	NAME_KOR; // [72*2]
             public string	NAME_ENG; // [72*2]
@@ -25,8 +25,8 @@ namespace NXLData {
             public int	EFF_VALUE;
             public int	EFF_POS;
         }
-        public static ITEM_CLASS1_WEAPON04[] stItem_CLASS1_Weapon04 = new ITEM_CLASS1_WEAPON04[ITEM_CLASS1_WEAPON04_MAX] {
-            new ITEM_CLASS1_WEAPON04 {
+        public static ITEM_CLASS4_WEAPON04[] stItem_CLASS4_Weapon04 = new ITEM_CLASS4_WEAPON04[ITEM_CLASS4_WEAPON04_MAX] {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 0,
                 NAME_KOR = "¼ö·Ã¿ë¾Ï·¿",
                 NAME_ENG = "The bayonet seal",
@@ -47,7 +47,7 @@ namespace NXLData {
                 EFF_VALUE = 16,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 1,
                 NAME_KOR = "Ã»µ¿¾Ï·¿",
                 NAME_ENG = "Sword of the Dead",
@@ -68,7 +68,7 @@ namespace NXLData {
                 EFF_VALUE = 60,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 2,
                 NAME_KOR = "Ã»µ¿¸Ó½Å¾Ï",
                 NAME_ENG = "Sword of the Resurrection",
@@ -89,7 +89,7 @@ namespace NXLData {
                 EFF_VALUE = 115,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 3,
                 NAME_KOR = "Ã»µ¿¹èÆ²¾Ï",
                 NAME_ENG = "Majokjeohanggungeom",
@@ -110,7 +110,7 @@ namespace NXLData {
                 EFF_VALUE = 170,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 4,
                 NAME_KOR = "°­Ã¶¾Ï·¿",
                 NAME_ENG = "Cathedral articles dagger",
@@ -131,7 +131,7 @@ namespace NXLData {
                 EFF_VALUE = 225,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 5,
                 NAME_KOR = "°­Ã¶¸Ó½Å¾Ï",
                 NAME_ENG = "Sword of greed",
@@ -152,7 +152,7 @@ namespace NXLData {
                 EFF_VALUE = 280,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 6,
                 NAME_KOR = "°­Ã¶¹èÆ²¾Ï",
                 NAME_ENG = "Inyeonuigeom",
@@ -173,7 +173,7 @@ namespace NXLData {
                 EFF_VALUE = 335,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 7,
                 NAME_KOR = "ÇÕ±Ý¾Ï·¿",
                 NAME_ENG = "Wonjeongdaeuigeom",
@@ -194,7 +194,7 @@ namespace NXLData {
                 EFF_VALUE = 390,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 8,
                 NAME_KOR = "ÇÕ±Ý¸Ó½Å¾Ï",
                 NAME_ENG = "Scenes of the Sword",
@@ -215,7 +215,7 @@ namespace NXLData {
                 EFF_VALUE = 445,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 9,
                 NAME_KOR = "ÇÕ±Ý¹èÆ²¾Ï",
                 NAME_ENG = "Oricon bayonet",
@@ -236,7 +236,7 @@ namespace NXLData {
                 EFF_VALUE = 500,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 10,
                 NAME_KOR = "¿À¸®ÄÜ¾Ï·¿",
                 NAME_ENG = "Palladium Gulf Bayonet",
@@ -257,7 +257,7 @@ namespace NXLData {
                 EFF_VALUE = 555,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 11,
                 NAME_KOR = "¿À¸®ÄÜ¸Ó½Å¾Ï",
                 NAME_ENG = "Sword of Despair",
@@ -278,7 +278,7 @@ namespace NXLData {
                 EFF_VALUE = 610,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 12,
                 NAME_KOR = "¿À¸®ÄÜ¹èÆ²¾Ï",
                 NAME_ENG = "Infinity's Greatsword",
@@ -299,7 +299,7 @@ namespace NXLData {
                 EFF_VALUE = 665,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 13,
                 NAME_KOR = "Ã»µ¿ÆÄ¿ö¾Ï",
                 NAME_ENG = "Asda seonggeom Karon",
@@ -320,7 +320,7 @@ namespace NXLData {
                 EFF_VALUE = 238,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 14,
                 NAME_KOR = "°­Ã¶ÆÄ¿ö¾Ï",
                 NAME_ENG = "Cheonsanguigeom",
@@ -341,7 +341,7 @@ namespace NXLData {
                 EFF_VALUE = 469,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 15,
                 NAME_KOR = "ÇÕ±ÝÆÄ¿ö¾Ï",
                 NAME_ENG = "Greatsword of patience",
@@ -362,7 +362,7 @@ namespace NXLData {
                 EFF_VALUE = 700,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_WEAPON04 {
+            new ITEM_CLASS4_WEAPON04 {
                 ICON = 16,
                 NAME_KOR = "¿À¸®ÄÜÆÄ¿ö¾Ï",
                 NAME_ENG = "Greatsword of patience",
@@ -384,8 +384,8 @@ namespace NXLData {
                 EFF_POS = 0,
             },
         };
-        public const int ITEM_CLASS1_HELMET04_MAX = 17;
-        public struct ITEM_CLASS1_HELMET04 {
+        public const int ITEM_CLASS4_HELMET04_MAX = 17;
+        public struct ITEM_CLASS4_HELMET04 {
             public int ICON;
             public string	NAME_KOR; // [72*2]
             public string	NAME_ENG; // [72*2]
@@ -406,8 +406,8 @@ namespace NXLData {
             public int	EFF_VALUE;
             public int	EFF_POS;
         }
-        public static ITEM_CLASS1_HELMET04[] stItem_CLASS1_Helmet04 = new ITEM_CLASS1_HELMET04[ITEM_CLASS1_HELMET04_MAX] {
-            new ITEM_CLASS1_HELMET04 {
+        public static ITEM_CLASS4_HELMET04[] stItem_CLASS4_Helmet04 = new ITEM_CLASS4_HELMET04[ITEM_CLASS4_HELMET04_MAX] {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 0,
                 NAME_KOR = "¼ö·Ã¿ëÆäµµ¶ó",
                 NAME_ENG = "The bayonet seal",
@@ -428,7 +428,7 @@ namespace NXLData {
                 EFF_VALUE = 1,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 1,
                 NAME_KOR = "³°ÀºÆäµµ¶ó",
                 NAME_ENG = "Sword of the Dead",
@@ -449,7 +449,7 @@ namespace NXLData {
                 EFF_VALUE = 3,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 2,
                 NAME_KOR = "³°Àº¸¶¹ý¸ð",
                 NAME_ENG = "Sword of the Resurrection",
@@ -470,7 +470,7 @@ namespace NXLData {
                 EFF_VALUE = 6,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 3,
                 NAME_KOR = "³°ÀºÇÐÀÚ¸ð",
                 NAME_ENG = "Majokjeohanggungeom",
@@ -491,7 +491,7 @@ namespace NXLData {
                 EFF_VALUE = 9,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 4,
                 NAME_KOR = "ÀÏ¹ÝÆäµµ¶ó",
                 NAME_ENG = "Cathedral articles dagger",
@@ -512,7 +512,7 @@ namespace NXLData {
                 EFF_VALUE = 12,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 5,
                 NAME_KOR = "ÀÏ¹Ý¸¶¹ý¸ð",
                 NAME_ENG = "Sword of greed",
@@ -533,7 +533,7 @@ namespace NXLData {
                 EFF_VALUE = 15,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 6,
                 NAME_KOR = "ÀÏ¹ÝÇÐÀÚ¸ð",
                 NAME_ENG = "Inyeonuigeom",
@@ -554,7 +554,7 @@ namespace NXLData {
                 EFF_VALUE = 17,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 7,
                 NAME_KOR = "°í±ÞÆäµµ¶ó",
                 NAME_ENG = "Wonjeongdaeuigeom",
@@ -575,7 +575,7 @@ namespace NXLData {
                 EFF_VALUE = 20,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 8,
                 NAME_KOR = "°í±Þ¸¶¹ý¸ð",
                 NAME_ENG = "Scenes of the Sword",
@@ -596,7 +596,7 @@ namespace NXLData {
                 EFF_VALUE = 23,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 9,
                 NAME_KOR = "°í±ÞÇÐÀÚ¸ð",
                 NAME_ENG = "Oricon bayonet",
@@ -617,7 +617,7 @@ namespace NXLData {
                 EFF_VALUE = 26,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 10,
                 NAME_KOR = "Èñ±ÍÆäµµ¶ó",
                 NAME_ENG = "Palladium Gulf Bayonet",
@@ -638,7 +638,7 @@ namespace NXLData {
                 EFF_VALUE = 28,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 11,
                 NAME_KOR = "Èñ±Í¸¶¹ý¸ð",
                 NAME_ENG = "Sword of Despair",
@@ -659,7 +659,7 @@ namespace NXLData {
                 EFF_VALUE = 31,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 12,
                 NAME_KOR = "Èñ±ÍÇÐÀÚ¸ð",
                 NAME_ENG = "Infinity's Greatsword",
@@ -680,7 +680,7 @@ namespace NXLData {
                 EFF_VALUE = 33,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 13,
                 NAME_KOR = "³°ÀºÈÄµå",
                 NAME_ENG = "Asda seonggeom Karon",
@@ -701,7 +701,7 @@ namespace NXLData {
                 EFF_VALUE = 13,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 14,
                 NAME_KOR = "ÀÏ¹ÝÈÄµå",
                 NAME_ENG = "Cheonsanguigeom",
@@ -722,7 +722,7 @@ namespace NXLData {
                 EFF_VALUE = 24,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 15,
                 NAME_KOR = "°í±ÞÈÄµå",
                 NAME_ENG = "Greatsword of patience",
@@ -743,7 +743,7 @@ namespace NXLData {
                 EFF_VALUE = 36,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_HELMET04 {
+            new ITEM_CLASS4_HELMET04 {
                 ICON = 16,
                 NAME_KOR = "Èñ±ÍÈÄµå",
                 NAME_ENG = "Greatsword of patience",
@@ -765,8 +765,8 @@ namespace NXLData {
                 EFF_POS = 0,
             },
         };
-        public const int ITEM_CLASS1_ARMOR04_MAX = 17;
-        public struct ITEM_CLASS1_ARMOR04 {
+        public const int ITEM_CLASS4_ARMOR04_MAX = 17;
+        public struct ITEM_CLASS4_ARMOR04 {
             public int ICON;
             public string	NAME_KOR; // [72*2]
             public string	NAME_ENG; // [72*2]
@@ -787,8 +787,8 @@ namespace NXLData {
             public int	EFF_VALUE;
             public int	EFF_POS;
         }
-        public static ITEM_CLASS1_ARMOR04[] stItem_CLASS1_Armor04 = new ITEM_CLASS1_ARMOR04[ITEM_CLASS1_ARMOR04_MAX] {
-            new ITEM_CLASS1_ARMOR04 {
+        public static ITEM_CLASS4_ARMOR04[] stItem_CLASS4_Armor04 = new ITEM_CLASS4_ARMOR04[ITEM_CLASS4_ARMOR04_MAX] {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 0,
                 NAME_KOR = "¼ö·Ã¿ëÀÇº¹",
                 NAME_ENG = "The bayonet seal",
@@ -809,7 +809,7 @@ namespace NXLData {
                 EFF_VALUE = 2,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 1,
                 NAME_KOR = "³°ÀºÀÇº¹",
                 NAME_ENG = "Sword of the Dead",
@@ -830,7 +830,7 @@ namespace NXLData {
                 EFF_VALUE = 5,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 2,
                 NAME_KOR = "³°Àº¸¶¹ýº¹",
                 NAME_ENG = "Sword of the Resurrection",
@@ -851,7 +851,7 @@ namespace NXLData {
                 EFF_VALUE = 8,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 3,
                 NAME_KOR = "³°ÀºÁ¦»çº¹",
                 NAME_ENG = "Majokjeohanggungeom",
@@ -872,7 +872,7 @@ namespace NXLData {
                 EFF_VALUE = 11,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 4,
                 NAME_KOR = "ÀÏ¹ÝÀÇº¹",
                 NAME_ENG = "Cathedral articles dagger",
@@ -893,7 +893,7 @@ namespace NXLData {
                 EFF_VALUE = 15,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 5,
                 NAME_KOR = "ÀÏ¹Ý¸¶¹ýº¹",
                 NAME_ENG = "Sword of greed",
@@ -914,7 +914,7 @@ namespace NXLData {
                 EFF_VALUE = 18,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 6,
                 NAME_KOR = "ÀÏ¹ÝÁ¦»çº¹",
                 NAME_ENG = "Inyeonuigeom",
@@ -935,7 +935,7 @@ namespace NXLData {
                 EFF_VALUE = 21,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 7,
                 NAME_KOR = "°í±ÞÀÇº¹",
                 NAME_ENG = "Wonjeongdaeuigeom",
@@ -956,7 +956,7 @@ namespace NXLData {
                 EFF_VALUE = 25,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 8,
                 NAME_KOR = "°í±Þ¸¶¹ýº¹",
                 NAME_ENG = "Scenes of the Sword",
@@ -977,7 +977,7 @@ namespace NXLData {
                 EFF_VALUE = 28,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 9,
                 NAME_KOR = "°í±ÞÁ¦»çº¹",
                 NAME_ENG = "Oricon bayonet",
@@ -998,7 +998,7 @@ namespace NXLData {
                 EFF_VALUE = 31,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 10,
                 NAME_KOR = "Èñ±ÍÀÇº¹",
                 NAME_ENG = "Palladium Gulf Bayonet",
@@ -1019,7 +1019,7 @@ namespace NXLData {
                 EFF_VALUE = 35,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 11,
                 NAME_KOR = "Èñ±Í¸¶¹ýº¹",
                 NAME_ENG = "Sword of Despair",
@@ -1040,7 +1040,7 @@ namespace NXLData {
                 EFF_VALUE = 38,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 12,
                 NAME_KOR = "Èñ±ÍÁ¦»çº¹",
                 NAME_ENG = "Infinity's Greatsword",
@@ -1061,7 +1061,7 @@ namespace NXLData {
                 EFF_VALUE = 40,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 13,
                 NAME_KOR = "³°ÀºÈÄµå",
                 NAME_ENG = "Asda seonggeom Karon",
@@ -1082,7 +1082,7 @@ namespace NXLData {
                 EFF_VALUE = 16,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 14,
                 NAME_KOR = "ÀÏ¹ÝÈÄµå",
                 NAME_ENG = "Cheonsanguigeom",
@@ -1103,7 +1103,7 @@ namespace NXLData {
                 EFF_VALUE = 30,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 15,
                 NAME_KOR = "°í±ÞÈÄµå",
                 NAME_ENG = "Greatsword of patience",
@@ -1124,7 +1124,7 @@ namespace NXLData {
                 EFF_VALUE = 44,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_ARMOR04 {
+            new ITEM_CLASS4_ARMOR04 {
                 ICON = 16,
                 NAME_KOR = "Èñ±ÍÈÄµå",
                 NAME_ENG = "Greatsword of patience",
@@ -1146,8 +1146,8 @@ namespace NXLData {
                 EFF_POS = 0,
             },
         };
-        public const int ITEM_CLASS1_GLOVES04_MAX = 17;
-        public struct ITEM_CLASS1_GLOVES04 {
+        public const int ITEM_CLASS4_GLOVES04_MAX = 17;
+        public struct ITEM_CLASS4_GLOVES04 {
             public int ICON;
             public string	NAME_KOR; // [72*2]
             public string	NAME_ENG; // [72*2]
@@ -1168,8 +1168,8 @@ namespace NXLData {
             public int	EFF_VALUE;
             public int	EFF_POS;
         }
-        public static ITEM_CLASS1_GLOVES04[] stItem_CLASS1_Gloves04 = new ITEM_CLASS1_GLOVES04[ITEM_CLASS1_GLOVES04_MAX] {
-            new ITEM_CLASS1_GLOVES04 {
+        public static ITEM_CLASS4_GLOVES04[] stItem_CLASS4_Gloves04 = new ITEM_CLASS4_GLOVES04[ITEM_CLASS4_GLOVES04_MAX] {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 0,
                 NAME_KOR = "¼ö·Ã¿ë¼ö°©",
                 NAME_ENG = "The bayonet seal",
@@ -1190,7 +1190,7 @@ namespace NXLData {
                 EFF_VALUE = 2,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 1,
                 NAME_KOR = "³°Àº¼ö°©",
                 NAME_ENG = "Sword of the Dead",
@@ -1211,7 +1211,7 @@ namespace NXLData {
                 EFF_VALUE = 4,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 2,
                 NAME_KOR = "³°Àººñ´Ü¼ö°©",
                 NAME_ENG = "Sword of the Resurrection",
@@ -1232,7 +1232,7 @@ namespace NXLData {
                 EFF_VALUE = 6,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 3,
                 NAME_KOR = "³°Àº¸¶·Â¼ö°©",
                 NAME_ENG = "Majokjeohanggungeom",
@@ -1253,7 +1253,7 @@ namespace NXLData {
                 EFF_VALUE = 8,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 4,
                 NAME_KOR = "ÀÏ¹Ý¼ö°©",
                 NAME_ENG = "Cathedral articles dagger",
@@ -1274,7 +1274,7 @@ namespace NXLData {
                 EFF_VALUE = 10,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 5,
                 NAME_KOR = "ÀÏ¹Ýºñ´Ü¼ö°©",
                 NAME_ENG = "Sword of greed",
@@ -1295,7 +1295,7 @@ namespace NXLData {
                 EFF_VALUE = 13,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 6,
                 NAME_KOR = "ÀÏ¹Ý¸¶·Â¼ö°©",
                 NAME_ENG = "Inyeonuigeom",
@@ -1316,7 +1316,7 @@ namespace NXLData {
                 EFF_VALUE = 15,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 7,
                 NAME_KOR = "°í±Þ¼ö°©",
                 NAME_ENG = "Wonjeongdaeuigeom",
@@ -1337,7 +1337,7 @@ namespace NXLData {
                 EFF_VALUE = 17,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 8,
                 NAME_KOR = "°í±Þºñ´Ü¼ö°©",
                 NAME_ENG = "Scenes of the Sword",
@@ -1358,7 +1358,7 @@ namespace NXLData {
                 EFF_VALUE = 19,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 9,
                 NAME_KOR = "°í±Þ¸¶·Â¼ö°©",
                 NAME_ENG = "Oricon bayonet",
@@ -1379,7 +1379,7 @@ namespace NXLData {
                 EFF_VALUE = 21,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 10,
                 NAME_KOR = "Èñ±Í¼ö°©",
                 NAME_ENG = "Palladium Gulf Bayonet",
@@ -1400,7 +1400,7 @@ namespace NXLData {
                 EFF_VALUE = 24,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 11,
                 NAME_KOR = "Èñ±Íºñ´Ü¼ö°©",
                 NAME_ENG = "Sword of Despair",
@@ -1421,7 +1421,7 @@ namespace NXLData {
                 EFF_VALUE = 26,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 12,
                 NAME_KOR = "Èñ±Í¸¶·Â¼ö°©",
                 NAME_ENG = "Infinity's Greatsword",
@@ -1442,7 +1442,7 @@ namespace NXLData {
                 EFF_VALUE = 27,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 13,
                 NAME_KOR = "³°ÀºÈÄµå",
                 NAME_ENG = "Asda seonggeom Karon",
@@ -1463,7 +1463,7 @@ namespace NXLData {
                 EFF_VALUE = 11,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 14,
                 NAME_KOR = "ÀÏ¹ÝÈÄµå",
                 NAME_ENG = "Cheonsanguigeom",
@@ -1484,7 +1484,7 @@ namespace NXLData {
                 EFF_VALUE = 21,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 15,
                 NAME_KOR = "°í±ÞÈÄµå",
                 NAME_ENG = "Greatsword of patience",
@@ -1505,7 +1505,7 @@ namespace NXLData {
                 EFF_VALUE = 30,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_GLOVES04 {
+            new ITEM_CLASS4_GLOVES04 {
                 ICON = 16,
                 NAME_KOR = "Èñ±ÍÈÄµå",
                 NAME_ENG = "Greatsword of patience",
@@ -1527,8 +1527,8 @@ namespace NXLData {
                 EFF_POS = 0,
             },
         };
-        public const int ITEM_CLASS1_SHOES04_MAX = 17;
-        public struct ITEM_CLASS1_SHOES04 {
+        public const int ITEM_CLASS4_SHOES04_MAX = 17;
+        public struct ITEM_CLASS4_SHOES04 {
             public int ICON;
             public string	NAME_KOR; // [72*2]
             public string	NAME_ENG; // [72*2]
@@ -1549,8 +1549,8 @@ namespace NXLData {
             public int	EFF_VALUE;
             public int	EFF_POS;
         }
-        public static ITEM_CLASS1_SHOES04[] stItem_CLASS1_Shoes04 = new ITEM_CLASS1_SHOES04[ITEM_CLASS1_SHOES04_MAX] {
-            new ITEM_CLASS1_SHOES04 {
+        public static ITEM_CLASS4_SHOES04[] stItem_CLASS4_Shoes04 = new ITEM_CLASS4_SHOES04[ITEM_CLASS4_SHOES04_MAX] {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 0,
                 NAME_KOR = "¼ö·Ã¿ë½´Áî",
                 NAME_ENG = "The bayonet seal",
@@ -1571,7 +1571,7 @@ namespace NXLData {
                 EFF_VALUE = 3,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 1,
                 NAME_KOR = "³°Àº½´Áî",
                 NAME_ENG = "Sword of the Dead",
@@ -1592,7 +1592,7 @@ namespace NXLData {
                 EFF_VALUE = 5,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 2,
                 NAME_KOR = "³°ÀººÎÃ÷",
                 NAME_ENG = "Sword of the Resurrection",
@@ -1613,7 +1613,7 @@ namespace NXLData {
                 EFF_VALUE = 8,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 3,
                 NAME_KOR = "³°ÀºÀåÈ­",
                 NAME_ENG = "Majokjeohanggungeom",
@@ -1634,7 +1634,7 @@ namespace NXLData {
                 EFF_VALUE = 11,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 4,
                 NAME_KOR = "ÀÏ¹Ý½´Áî",
                 NAME_ENG = "Cathedral articles dagger",
@@ -1655,7 +1655,7 @@ namespace NXLData {
                 EFF_VALUE = 13,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 5,
                 NAME_KOR = "ÀÏ¹ÝºÎÃ÷",
                 NAME_ENG = "Sword of greed",
@@ -1676,7 +1676,7 @@ namespace NXLData {
                 EFF_VALUE = 16,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 6,
                 NAME_KOR = "ÀÏ¹ÝÀåÈ­",
                 NAME_ENG = "Inyeonuigeom",
@@ -1697,7 +1697,7 @@ namespace NXLData {
                 EFF_VALUE = 19,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 7,
                 NAME_KOR = "°í±Þ½´Áî",
                 NAME_ENG = "Wonjeongdaeuigeom",
@@ -1718,7 +1718,7 @@ namespace NXLData {
                 EFF_VALUE = 22,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 8,
                 NAME_KOR = "°í±ÞºÎÃ÷",
                 NAME_ENG = "Scenes of the Sword",
@@ -1739,7 +1739,7 @@ namespace NXLData {
                 EFF_VALUE = 25,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 9,
                 NAME_KOR = "°í±ÞÀåÈ­",
                 NAME_ENG = "Oricon bayonet",
@@ -1760,7 +1760,7 @@ namespace NXLData {
                 EFF_VALUE = 27,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 10,
                 NAME_KOR = "Èñ±Í½´Áî",
                 NAME_ENG = "Palladium Gulf Bayonet",
@@ -1781,7 +1781,7 @@ namespace NXLData {
                 EFF_VALUE = 30,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 11,
                 NAME_KOR = "Èñ±ÍºÎÃ÷",
                 NAME_ENG = "Sword of Despair",
@@ -1802,7 +1802,7 @@ namespace NXLData {
                 EFF_VALUE = 33,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 12,
                 NAME_KOR = "Èñ±ÍÀåÈ­",
                 NAME_ENG = "Infinity's Greatsword",
@@ -1823,7 +1823,7 @@ namespace NXLData {
                 EFF_VALUE = 33,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 13,
                 NAME_KOR = "³°ÀºÈÄµå",
                 NAME_ENG = "Asda seonggeom Karon",
@@ -1844,7 +1844,7 @@ namespace NXLData {
                 EFF_VALUE = 15,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 14,
                 NAME_KOR = "ÀÏ¹ÝÈÄµå",
                 NAME_ENG = "Cheonsanguigeom",
@@ -1865,7 +1865,7 @@ namespace NXLData {
                 EFF_VALUE = 27,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 15,
                 NAME_KOR = "°í±ÞÈÄµå",
                 NAME_ENG = "Greatsword of patience",
@@ -1886,7 +1886,7 @@ namespace NXLData {
                 EFF_VALUE = 38,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_SHOES04 {
+            new ITEM_CLASS4_SHOES04 {
                 ICON = 16,
                 NAME_KOR = "Èñ±ÍÈÄµå",
                 NAME_ENG = "Greatsword of patience",
@@ -1908,8 +1908,8 @@ namespace NXLData {
                 EFF_POS = 0,
             },
         };
-        public const int ITEM_CLASS1_AVATAR04_MAX = 3;
-        public struct ITEM_CLASS1_AVATAR04 {
+        public const int ITEM_CLASS4_AVATAR04_MAX = 3;
+        public struct ITEM_CLASS4_AVATAR04 {
             public int ICON;
             public string	NAME_KOR; // [72*2]
             public string	NAME_ENG; // [72*2]
@@ -1930,8 +1930,8 @@ namespace NXLData {
             public int	EFF_VALUE;
             public int	EFF_POS;
         }
-        public static ITEM_CLASS1_AVATAR04[] stItem_CLASS1_Avatar04 = new ITEM_CLASS1_AVATAR04[ITEM_CLASS1_AVATAR04_MAX] {
-            new ITEM_CLASS1_AVATAR04 {
+        public static ITEM_CLASS4_AVATAR04[] stItem_CLASS4_Avatar04 = new ITEM_CLASS4_AVATAR04[ITEM_CLASS4_AVATAR04_MAX] {
+            new ITEM_CLASS4_AVATAR04 {
                 ICON = 0,
                 NAME_KOR = "°ø·æ ¾Æ¹ÙÅ¸",
                 NAME_ENG = "°ø·æ ¾Æ¹ÙÅ¸",
@@ -1952,7 +1952,7 @@ namespace NXLData {
                 EFF_VALUE = 0,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_AVATAR04 {
+            new ITEM_CLASS4_AVATAR04 {
                 ICON = 1,
                 NAME_KOR = "DLC1",
                 NAME_ENG = "DLC1",
@@ -1973,7 +1973,7 @@ namespace NXLData {
                 EFF_VALUE = 1,
                 EFF_POS = 0,
             },
-            new ITEM_CLASS1_AVATAR04 {
+            new ITEM_CLASS4_AVATAR04 {
                 ICON = 2,
                 NAME_KOR = "DLC2",
                 NAME_ENG = "DLC2",
