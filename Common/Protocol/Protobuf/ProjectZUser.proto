@@ -11,4 +11,5 @@ message ProjectZUser {
 	UserInfo info = 2;
 	SocialInfo social = 3;
 	repeated CharacterInfo character = 4; // 8 CharacterInfo
+	uint32 zen = 5;
 }

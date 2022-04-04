@@ -85,21 +85,21 @@ namespace ProjectZ {
             pos++;
         }
 
-        public void U2 ( UInt16 value ) {
+        public void U2 ( Int16 value ) {
             extendBody(2);
-            ByteArray.SetUInt16(data, pos, value);
+            ByteArray.SetUInt16(data, pos, (UInt16)value);
             pos += 2;
         }
 
-        public void U4 ( UInt32 value ) {
+        public void U4 ( Int32 value ) {
             extendBody(4);
-            ByteArray.SetUInt32(data, pos, value);
+            ByteArray.SetUInt32(data, pos, (UInt32)value);
             pos += 4;
         }
 
-        public void U8( UInt64 value ) {
+        public void U8( Int64 value ) {
             extendBody(8);
-            ByteArray.SetUInt64(data, pos, value);
+            ByteArray.SetUInt64(data, pos, (UInt64)value);
             pos += 8;
         }
 

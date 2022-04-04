@@ -50,6 +50,26 @@ namespace ProjectZ {
             Thread t = new Thread(run);
             t.Start();
         }
+        public void Send(NetworkPacket packet) {
+            if (IsNeedEnc(packet.Cmd)) {
+                if (packet.Cmd == NetCMDTypes.ZNO_SC_REQ_SERVER_ADDR || packet.Cmd == NetCMDTypes.ZNO_SC_CONNECT) {
+                    //Console.WriteLine("Encrypting with user key");
+                    xorEncode(packet.data, (uint)packet.data.Length, Encoding.ASCII.GetBytes(user.SocialID), (uint)Encoding.ASCII.GetBytes(user.SocialID).Length);
+                } else {
+                    //Console.WriteLine("Encrypting");
+                    xorEncode(packet.data, (uint)packet.data.Length, Encoding.ASCII.GetBytes(user.encryption_key), (uint)Encoding.ASCII.GetBytes(user.encryption_key).Length);
+                }
+            }
+            stream.Write(packet.GetHeader(), 0, packet.GetHeader().Length);
+            stream.Write(packet.data, 0, packet.data.Length);
+            if (packet.Cmd == NetCMDTypes.ZNO_SC_REQ_SERVER_ADDR) {
+                // close stream
+                Console.WriteLine("Closing stream");
+                //stream.Close();
+                // return;
+            }
+            Console.WriteLine("Sent " + packet.Cmd.ToString());
+        }
         private void run() {
             try {
                 while (isRunning) {

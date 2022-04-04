@@ -24,7 +24,7 @@ namespace ProjectZ {
             Console.WriteLine("+-------------------------------------------------------------------");
 
             NetworkPacket response = new NetworkPacket(NetCMDTypes.ZNO_SC_CONNECT);
-            response.U2((ushort)NetACKTypes.ACK_OK);
+            response.U2((short)NetACKTypes.ACK_OK);
             // next 16 bytes are the new encryption key
             response.Set("ZENONIAONLINE@22");
             session.user.encryption_key = "ZENONIAONLINE@22";

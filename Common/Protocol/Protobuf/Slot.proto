@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "ProjectZ.Common.Protocol";
+option csharp_namespace = "ProjectZ.Common.Protocol.Protobuf";
 
 message Slot {
     bool	    open = 1;

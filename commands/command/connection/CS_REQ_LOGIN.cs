@@ -32,7 +32,7 @@ namespace ProjectZ {
             if (game_version != 509 && m_Nickname != "1231234") {
                 Console.WriteLine("User {0} is using wrong game version {1}", m_Nickname, game_version);
                 NetworkPacket packet_out = new NetworkPacket(NetCMDTypes.ZNO_SC_REQ_LOGIN);
-                packet_out.U2((ushort)NetACKTypes.ACK_VERSION_MISMATCH);
+                packet_out.U2((short)NetACKTypes.ACK_VERSION_MISMATCH);
                 return packet_out;
             }
 
@@ -45,11 +45,11 @@ namespace ProjectZ {
             session.user.isAuth = isAuth;
 
             NetworkPacket response = new NetworkPacket(NetCMDTypes.ZNO_SC_REQ_LOGIN);
-            response.U2((ushort)NetACKTypes.ACK_OK);
+            response.U2((short)NetACKTypes.ACK_OK);
             // generate a random uint gid -> this is the player gid
             uint gid = (uint)new Random().Next(0, int.MaxValue);
             Console.WriteLine("Generated gid: {0}", gid);
-            response.U4(gid);
+            response.U4((int)gid);
             session.user.gid = gid;
 
             return response;

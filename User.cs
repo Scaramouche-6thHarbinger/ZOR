@@ -17,6 +17,7 @@ namespace ProjectZ {
             for (int i = 0; i < 8; i++) {
                 mUser.Character.Add(new CharacterInfo());
             }
+            mUser.Zen = 100000;
         }
 
         public string Nickname {
@@ -144,10 +145,76 @@ namespace ProjectZ {
                 mUser.Social.IsBirthdayOpen = value;
             }
         }
+
+        public int IsProfileOpen {
+            get {
+                return mUser.Social.ProfileOpened;
+            }
+            set {
+                mUser.Social.ProfileOpened = value;
+            }
+        }
+
+        public sbyte MainSlotIndex {
+            get {
+                return (sbyte)mUser.Info.MainSlotIndex;
+            }
+            set {
+                mUser.Info.MainSlotIndex = value;
+            }
+        }
+
+        public sbyte IntroState {
+            get {
+                return (sbyte)mUser.Info.U8IntroState;
+            }
+            set {
+                mUser.Info.U8IntroState = (uint)value;
+            }
+        }
+
+        public List<Slot> Slots {
+            get {
+                List<Slot> slots = new List<Slot>();
+                for (int i = 0; i < 8; i++) {
+                    slots.Add(new Slot(mUser.Info.ArraySlot[i]));
+                }
+                return slots;
+            }
+        }
+
+        public List<CharacterInfo> Characters {
+            get {
+                List<CharacterInfo> characters = new List<CharacterInfo>();
+                for (int i = 0; i < 8; i++) {
+                    characters.Add(mUser.Character[i]);
+                }
+                return characters;
+            }
+        }
+
+        public uint Zen {
+            get {
+                return mUser.Zen;
+            }
+            set {
+                mUser.Zen = value;
+            }
+        }
+
+        public void SetSlot(int index, Slot slot) {
+            mUser.Info.ArraySlot[index] = slot;
+        }
+
+        public void SetCharacter(int index, CharacterInfo character) {
+            mUser.Character[index] = character;
+        }
+
         public User CreateUser(string social_id) {
             mUser = new ProjectZUser();
             mUser.Info = new UserInfo();
             mUser.Social = new SocialInfo();
+            mUser.Zen = 100000;
             for (int i = 0; i < 8; i++) {
                 mUser.Character.Add(new CharacterInfo());
             }
@@ -202,6 +269,13 @@ namespace ProjectZ {
             // current date to string in format 20220101
             mUser.Social.Birthday = "20220101";
             mUser.Social.IsBirthdayOpen = 0;
+
+            mUser.Info.ArraySlot[0].Open = true;
+            mUser.Info.ArraySlot[0].CharacterSeq = 0;
+            mUser.Info.ArraySlot[0].MakeCharacter = false;
+            mUser.Info.ArraySlot[0].RemainStatResetCount = 3;
+
+            SaveUser();
             return this;
         }
 
@@ -217,7 +291,9 @@ namespace ProjectZ {
             mUser = new ProjectZUser();
             mUser.SocialId = social_id;
             if (File.Exists(social_id + ".mbn")) {
+                Console.WriteLine("Loading user " + social_id);
                 mUser = ProjectZUser.Parser.ParseFrom(File.ReadAllBytes(social_id + ".mbn"));
+                Console.WriteLine("Loaded user " + mUser.ToString());
                 return this;
             } else {
                 return CreateUser(social_id);

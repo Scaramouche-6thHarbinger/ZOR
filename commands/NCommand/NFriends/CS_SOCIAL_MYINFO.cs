@@ -5,15 +5,15 @@ namespace ProjectZ {
 	        Console.WriteLine("| TODO!: API_ZNO_SC_SOCIAL_MYINFO");
             Console.WriteLine("+-------------------------------------------------------------------");
             NetworkPacket response = new NetworkPacket(NetCMDTypes.ZNO_SC_SOCIAL_MYINFO);
-            response.U2((ushort)NetACKTypes.ACK_OK);
-            response.U4(session.user.gid);
-            response.U4(session.user.WpCurWeek);
+            response.U2((short)NetACKTypes.ACK_OK);
+            response.U4((int)session.user.gid);
+            response.U4((int)session.user.WpCurWeek);
             response.U1((sbyte)session.user.HeartBlocked);
             response.U1((sbyte)session.user.ProfileOpened);
             response.U1((sbyte)session.user.InviteBlocked);
             response.U1((sbyte)session.user.Gender);
             response.U1((sbyte)session.user.IsGenderOpen);
-            response.U2((ushort)session.user.Birthday.Length);
+            response.U2((short)session.user.Birthday.Length);
             response.Set(session.user.Birthday);
             response.U1((sbyte)session.user.IsBirthdayOpen);
             
