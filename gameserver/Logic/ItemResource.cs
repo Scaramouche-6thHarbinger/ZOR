@@ -7,6 +7,13 @@ namespace ProjectZ {
         }
 
         public int GetItemBagType(Item item) {
+            switch ((EnumClassItemTableType)item.SubType) {
+                case EnumClassItemTableType.CLASS_ITEM_TABLE_NECKLACE:
+                    break;
+                default:
+                    Console.WriteLine("Unknown item type: " + item.SubType);
+                    break;
+            }
             return 0;
         }
     }

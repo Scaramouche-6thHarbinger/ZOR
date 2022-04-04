@@ -98,4 +98,14 @@ namespace ProjectZ {
         ITEM_EQUIP_POS_NAME_TAG,
         ITEM_EQUIP_POS_NAME_TAG_WORLDBOSS,
     };
+
+    enum EnumCharClass {
+        CLASS_TYPE_SLASHER = 0,
+        CLASS_TYPE_RANGER,
+        CLASS_TYPE_FIGHTER,
+        CLASS_TYPE_MAGICIAN,
+        CLASS_TYPE_ASSASSIN,
+    //	CLASS_TYPE_WIZARD,
+        CLASS_TYPE_MAX
+    };
 }
