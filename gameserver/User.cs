@@ -306,7 +306,7 @@ namespace ProjectZ {
         }
 
         public bool GiveBaseItem(int slot_index) {
-            Item item = new Item();
+            ProjectZ.Logic.Item item = new ProjectZ.Logic.Item();
             item.Tid = 0;
             item.SubType = (int)EnumClassItemTableType.CLASS_ITEM_TABLE_WEAPON;
             item.Quantity = 1;
