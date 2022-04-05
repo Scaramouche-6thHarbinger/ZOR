@@ -30,7 +30,7 @@ namespace NXLData {
             new ITEM_CLASS5_WEAPON05 {
                 ICON = 0,
                 NAME_KOR = "수련용사슬낫",
-                NAME_ENG = "The bayonet seal",
+                NAME_ENG = "Apprentice Chain Scythe",
                 NAME_JPN = "封印された大剣",
                 DLC_TYPE = 0,
                 USING = 0,
@@ -1935,7 +1935,7 @@ namespace NXLData {
             new ITEM_CLASS5_AVATAR05 {
                 ICON = 0,
                 NAME_KOR = "여우 아바타",
-                NAME_ENG = "여우 아바타",
+                NAME_ENG = "Fox Avatar",
                 NAME_JPN = "여우 아바타",
                 DLC_TYPE = 0,
                 USING = 0,
